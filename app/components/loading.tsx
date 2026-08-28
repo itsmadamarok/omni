@@ -1,9 +1,9 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
 
-export default function RouteLoader() {
+function LoaderContent() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const [loading, setLoading] = useState(false);
@@ -47,5 +47,13 @@ export default function RouteLoader() {
         <div className="h-full bg-gradient-to-r from-[#CA1421] via-[#DB4439] to-[#F1E8DB] w-full animate-indeterminate origin-left" />
       </div>
     </div>
+  );
+}
+
+export default function RouteLoader() {
+  return (
+    <Suspense fallback={null}>
+      <LoaderContent />
+    </Suspense>
   );
 }
