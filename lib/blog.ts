@@ -23,7 +23,7 @@ export const blogPosts: BlogPost[] = [
     description: "Thinking about buying Omni IPTV? Read this ultimate comparison guide before you purchase to see why Omni IPTV is rated the best IPTV service in 2026.",
     excerpt: "Before purchasing your next subscription, read our ultimate comparison guide to see why Omni IPTV stands out as the ultimate choice for buffer-free 4K streaming.",
     date: "June 25, 2026",
-    author: "Abderrahmane",
+    author: "Jessica",
     keywords: ["omni iptv", "omni iptv reviews", "omni iptv best iptv service", "best iptv service", "iptv subscription", "iptv service provider"],
     image: "/img/blog/article-1/cover.jfif", // Cover Image
     content: `
@@ -222,7 +222,7 @@ export const blogPosts: BlogPost[] = [
     description: "Discover why sports fans and cord-cutters rank Omni IPTV as the best IPTV service on the market. Enjoy buffer-free 60FPS live sports, F1, and 4K VODs.",
     excerpt: "Looking for the ultimate sports streaming experience? Learn how Omni IPTV delivers zero-lag 60FPS feeds for football, F1, and major pay-per-view events.",
     date: "June 28, 2026",
-    author: "Abderrahmane",
+    author: "Jessica",
     keywords: ["omni iptv", "best iptv service", "omni iptv reviews", "iptv subscription", "live sports iptv", "4k iptv streaming"],
     image: "/img/blog/article-2/cover.webp", // Cover Image
     content: `
@@ -401,7 +401,7 @@ export const blogPosts: BlogPost[] = [
     description: "Looking for a complete Omni IPTV setup guide? Learn how to configure TiviMate, IBO Player, and Firestick for buffer-free 4K streaming in under 5 minutes.",
     excerpt: "Master your Omni IPTV subscription with our definitive installation guide. Learn professional tips for TiviMate, Smart TVs, and anti-freeze adjustments.",
     date: "July 2, 2026",
-    author: "Abderrahmane",
+    author: "Jessica",
     keywords: ["omni iptv", "best iptv service", "omni iptv reviews", "iptv subscription", "iptv setup guide", "tivimate configuration"],
     image: "/img/blog/article-3/cover.webp", // Cover Image
     content: `
