@@ -6,6 +6,7 @@ import FloatingWhatsApp from './components/FloatingWhatsApp';
 import Footer from './components/Footer';
 import { CONSTANTS } from '@/lib/seo';
 import { GoogleAnalytics } from '@next/third-parties/google';
+import Loading from './components/loading';
 
 const poppins = Poppins({
   weight: ['300', '400', '500', '600', '700'],
@@ -441,6 +442,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <FAQSchema />
         <WebPageSchema />
         <ArticleSchema />
+        <Loading />
 
         <Header />
         <main>{children}</main>
