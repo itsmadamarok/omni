@@ -25,7 +25,7 @@ export const blogPosts: BlogPost[] = [
     date: "June 25, 2026",
     author: "Jessica",
     keywords: ["omni iptv", "omni iptv reviews", "omni iptv best iptv service", "best iptv service", "iptv subscription", "iptv service provider"],
-    image: "/img/blog/article-1/cover.jfif", // Cover Image
+    image: "/img/blog/article-1/cover.webp", // Cover Image
     content: `
       <style>
         .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
