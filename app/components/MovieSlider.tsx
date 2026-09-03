@@ -5,13 +5,13 @@ import Image from 'next/image';
 import { useState, useMemo } from 'react';
 import { CONSTANTS } from '@/lib/seo';
 
-// Localized Movies Array
+// Localized Movies Array (Cleaned alt tags to avoid keyword repetition spam)
 const movies = Array.from({ length: 12 }).map((_, i) => {
   const number = String(i + 1).padStart(2, '0');
   return {
     id: `movie-${i}`,
     imagePath: `/img/sliders/movies/omniptv-movies-${number}`,
-    altText: `${CONSTANTS.BRAND_NAME} bioscoopfilm ${i + 1} in 4K Ultra HD met Nederlandse ondertiteling`,
+    title: `Bioscoopfilm ${i + 1}`,
   };
 });
 
@@ -21,7 +21,7 @@ const series = Array.from({ length: 12 }).map((_, i) => {
   return {
     id: `series-${i}`,
     imagePath: `/img/sliders/series/omniptv-serie-${number}`,
-    altText: `${CONSTANTS.BRAND_NAME} populaire serie ${i + 1} compleet seizoen streamen`,
+    title: `Populaire Serie ${i + 1}`,
   };
 });
 
@@ -31,7 +31,7 @@ const sports = Array.from({ length: 12 }).map((_, i) => {
   return {
     id: `sport-${i}`,
     imagePath: `/img/sliders/sports/omniptv-sports-${number}`,
-    altText: `${CONSTANTS.BRAND_NAME} live sportuitzending ${i + 1} Eredivisie Viaplay Ziggo Sport`,
+    title: `Live Sport ${i + 1}`,
   };
 });
 
@@ -58,7 +58,7 @@ const InfiniteSlider = ({
   const duration = (items.length * speed) / 10;
 
   return (
-    <div className="relative w-full overflow-hidden">
+    <div className="relative w-full overflow-hidden" aria-hidden="true">
       <div className="absolute left-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-r from-[#000000] via-[#000000]/50 to-transparent z-10 pointer-events-none" />
       <div className="absolute right-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-l from-[#000000] via-[#000000]/50 to-transparent z-10 pointer-events-none" />
 
@@ -71,15 +71,15 @@ const InfiniteSlider = ({
           <button
             key={`${item.id}-${idx}`}
             onClick={scrollToPricing}
-            aria-label={`${category} bekijken en pakket kiezen`}
-            className="flex-shrink-0 w-28 sm:w-32 md:w-44 lg:w-48 block cursor-pointer group text-left"
+            tabIndex={idx >= items.length ? -1 : 0} // Prevent duplicate focus traps for screen readers
+            className="flex-shrink-0 w-28 sm:w-32 md:w-44 lg:w-48 block cursor-pointer group text-left bg-transparent border-none p-0"
           >
             <div className="relative aspect-[2/3] rounded-lg md:rounded-xl overflow-hidden bg-[#1A1A1D] border-2 border-[#CA1421] shadow-xl">
               {!failedImages[`${item.id}-${idx}`] ? (
                 <>
                   <Image
                     src={`${item.imagePath}.webp`}
-                    alt={item.altText}
+                    alt={`${CONSTANTS.BRAND_NAME} ${item.title}`}
                     width={192}
                     height={288}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
@@ -88,10 +88,10 @@ const InfiniteSlider = ({
                       setFailedImages((prev) => ({ ...prev, [`${item.id}-${idx}`]: true }))
                     }
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1D]/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center p-4">
-                    <p className="text-[#F1E8DB] text-xs font-black uppercase tracking-widest text-center">
-                      Direct Bekijken
-                    </p>
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1D]/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center p-3">
+                    <span className="text-[#F1E8DB] text-[10px] md:text-xs font-black uppercase tracking-wider text-center">
+                      Bekijk Pakket
+                    </span>
                   </div>
                 </>
               ) : (
