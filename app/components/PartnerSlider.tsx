@@ -2,18 +2,15 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { CONSTANTS } from '@/lib/seo';
 import { useMemo } from 'react';
 
 export default function PartnerSlider() {
-  // Generate partner logos with concise, non-repetitive descriptions to prevent SEO duplication penalties
+  // Generate clean partner objects without repetitive words
   const partners = Array.from({ length: 10 }, (_, i) => {
-    const partnerNumber = i + 1;
-    const partnerNumberPad = String(partnerNumber).padStart(2, '0');
+    const partnerNumber = String(i + 1).padStart(2, '0');
     return {
-      name: `Platform ${partnerNumber}`,
-      imagePath: `/img/partners/omniptv-partners-${partnerNumberPad}`,
-      altText: `Compatible streaming app logo ${partnerNumber}`,
+      name: `Brand-${partnerNumber}`,
+      imagePath: `/img/partners/omniptv-partners-${partnerNumber}`,
       width: 128,
       height: 128,
     };
@@ -26,7 +23,7 @@ export default function PartnerSlider() {
   const animationDistance = partners.length * 150;
 
   return (
-    <div className="w-full overflow-hidden relative py-12 bg-transparent" aria-label="Ondersteunde streaming apps en apparaten">
+    <div className="w-full overflow-hidden relative py-12 bg-transparent">
       {/* Blended gradient edge masks */}
       <div className="absolute left-0 top-0 bottom-0 w-24 md:w-32 bg-gradient-to-r from-[#1A1A1D] via-[#1A1A1D]/50 to-transparent z-10 pointer-events-none" />
       <div className="absolute right-0 top-0 bottom-0 w-24 md:w-32 bg-gradient-to-l from-[#1A1A1D] via-[#1A1A1D]/50 to-transparent z-10 pointer-events-none" />
@@ -37,7 +34,8 @@ export default function PartnerSlider() {
         </p>
       </div>
 
-      <div aria-hidden="true">
+      {/* Hide entire motion track from search engines and screen readers to prevent keyword loops */}
+      <div aria-hidden="true" role="presentation">
         <motion.div 
           className="flex gap-12 md:gap-16 items-center w-max"
           animate={{
@@ -60,9 +58,10 @@ export default function PartnerSlider() {
               <div className="relative w-20 h-20 md:w-28 md:h-28">
                 <Image
                   src={`${partner.imagePath}.png`}
-                  alt={idx < partners.length ? partner.altText : ""} // Prevent duplicate alt text indexing for duplicated loop elements
-                  width={partner.width || 128}
-                  height={partner.height || 128}
+                  alt=""
+                  aria-hidden="true"
+                  width={partner.width}
+                  height={partner.height}
                   className="object-contain"
                   sizes="(max-width: 768px) 80px, 112px"
                   loading="lazy"

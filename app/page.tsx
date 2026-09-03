@@ -124,13 +124,13 @@ export default function Home() {
               href="/pakketten" 
               className="w-full sm:w-auto text-center whitespace-nowrap px-6 sm:px-8 py-4 rounded-full bg-[#CA1421] text-[#F1E8DB] font-black text-base sm:text-lg hover:bg-[#DB4439] transition-transform hover:scale-105 uppercase tracking-wider shrink-0 shadow-lg"
             >
-              Bekijk Alle Pakketten
+              Bekijk Pakketten
             </Link>
             <Link 
               href="#channels" 
               className="w-full sm:w-auto text-center whitespace-nowrap px-6 sm:px-8 py-4 rounded-full bg-[#F1E8DB] text-[#CA1421] font-black text-base sm:text-lg hover:bg-[#FCA9FE] transition-transform hover:scale-105 uppercase tracking-wider flex items-center justify-center gap-2 shrink-0 shadow-lg"
             >
-              <PlayCircle className="w-5 h-5 shrink-0" /> Bekijk Zenderaanbod
+              <PlayCircle className="w-5 h-5 shrink-0" /> Zenderaanbod
             </Link>
           </div>
           
@@ -268,7 +268,7 @@ export default function Home() {
         </section>
 
       {/* Pricing Section */}
-      <div className="min-h-[600px] bg-[#1A1A1D]">
+      <div className="min-h-[600px] bg-[#1A1A1D]" id="pricing-section">
         {isMounted ? <PricingSection /> : <div className="h-[600px] bg-transparent" />}
       </div>
 
@@ -850,7 +850,7 @@ export default function Home() {
                 UPGRADE UW <br/><span className="text-[#CA1421]">TV ERVARING VANDAAG</span>
               </h2>
               <p className="mx-auto mt-6 max-w-3xl text-base leading-relaxed text-[#F1E8DB]/70 md:text-lg">
-                Krijg direct toegang tot alle sportkanalen, films en live televisie in 4K Ultra HD kwaliteit met <strong>OmnIPTV</strong>. Snelle activatie binnen 5 minuten op al uw apparaten.
+                Krijg direct toegang tot alle sportkanalen, films en live televisie in 4K Ultra HD kwaliteit met <strong>OmnIPTV</strong>. Snelle activatie binnen 5 minutes op al uw apparaten.
               </p>
               <div className="mx-auto mt-10 grid max-w-4xl grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
                 {[
