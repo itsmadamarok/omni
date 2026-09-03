@@ -131,6 +131,7 @@ export const metadata: Metadata = {
   category: 'entertainment',
   keywords: [
     'OMNI IPTV',
+    'OmniIPTV',
     'Beste IPTV',
     'IPTV Kopen',
     'IPTV Nederland',
@@ -142,6 +143,10 @@ export const metadata: Metadata = {
     'Smart TV IPTV App',
     'Eredivisie Viaplay IPTV',
     'Ziggo Sport IPTV',
+    'omni iptv reviews',
+    'omni iptv ervaringen',
+    'omni iptv test',
+    'hoe werkt omni iptv',
   ],
 };
 
@@ -207,7 +212,7 @@ const WebsiteSchema = () => (
   />
 );
 
-// Localized Product Schema with exact EUR pricing tiers
+// Clean Product Schema (No unverified aggregate rating to prevent manual spam flags)
 const ProductSchema = () => (
   <script
     type="application/ld+json"
@@ -224,13 +229,6 @@ const ProductSchema = () => (
         brand: {
           '@type': 'Brand',
           name: CONSTANTS.BRAND_NAME,
-        },
-        aggregateRating: {
-          '@type': 'AggregateRating',
-          ratingValue: '4.9',
-          reviewCount: '5000',
-          bestRating: '5',
-          worstRating: '1',
         },
         offers: [
           {
@@ -278,34 +276,6 @@ const ProductSchema = () => (
             availability: 'https://schema.org/OnlineOnly',
             url: `https://${CONSTANTS.DOMAIN}/`,
           },
-        ],
-      }),
-    }}
-  />
-);
-
-// Localized Service Schema
-const ServiceSchema = () => (
-  <script
-    type="application/ld+json"
-    id="service-schema"
-    suppressHydrationWarning
-    dangerouslySetInnerHTML={{
-      __html: JSON.stringify({
-        '@context': 'https://schema.org',
-        '@type': 'Service',
-        name: `${CONSTANTS.BRAND_NAME} IPTV Streaming Service`,
-        alternateName: 'Beste IPTV Kopen Nederland',
-        serviceType: 'IPTV Abonnement',
-        provider: {
-          '@type': 'Organization',
-          name: CONSTANTS.BRAND_NAME,
-        },
-        description:
-          'Stabiele 4K IPTV streaming service voor Smart TV, Firestick, Android, iOS en MAG-boxen.',
-        areaServed: [
-          { '@type': 'Country', name: 'Netherlands' },
-          { '@type': 'Country', name: 'Belgium' },
         ],
       }),
     }}
@@ -387,38 +357,6 @@ const WebPageSchema = () => (
   />
 );
 
-// Localized Article Schema
-const ArticleSchema = () => (
-  <script
-    type="application/ld+json"
-    id="article-schema"
-    suppressHydrationWarning
-    dangerouslySetInnerHTML={{
-      __html: JSON.stringify({
-        '@context': 'https://schema.org',
-        '@type': 'Article',
-        headline: 'OMNI IPTV - Beste IPTV Provider Nederland | 4K 2026',
-        image: [`https://${CONSTANTS.DOMAIN}/img/structer.webp`],
-        inLanguage: 'nl-NL',
-        datePublished: '2026-01-01T00:00:00+00:00',
-        dateModified: new Date().toISOString(),
-        author: {
-          '@type': 'Person',
-          name: `${CONSTANTS.BRAND_NAME} Team`,
-        },
-        publisher: {
-          '@type': 'Organization',
-          name: CONSTANTS.BRAND_NAME,
-          logo: {
-            '@type': 'ImageObject',
-            url: `https://${CONSTANTS.DOMAIN}/img/structer.webp`,
-          },
-        },
-      }),
-    }}
-  />
-);
-
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="nl" suppressHydrationWarning>
@@ -434,16 +372,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         className={`${poppins.className} ${montserrat.variable} antialiased min-h-screen bg-[#1A1A1D] text-[#F1E8DB]`}
         suppressHydrationWarning
       >
-        {/* Schema.org Structured Data */}
+        {/* Schema.org Structured Data (Cleaned and Google Compliant) */}
         <OrganizationSchema />
         <WebsiteSchema />
         <ProductSchema />
-        <ServiceSchema />
         <FAQSchema />
         <WebPageSchema />
-        <ArticleSchema />
+        
         <Loading />
-
         <Header />
         <main>{children}</main>
         <Footer />

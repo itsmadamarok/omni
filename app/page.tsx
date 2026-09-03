@@ -92,7 +92,7 @@ export default function Home() {
         <div className="absolute inset-0 z-0">
           <Image
             src="/img/background.webp"
-            alt={`${CONSTANTS.BRAND_NAME} 4K Ultra HD IPTV streaming achtergrond Nederland`}
+            alt={`OmnIPTV 4K Ultra HD IPTV streaming achtergrond Nederland`}
             fill
             priority
             fetchPriority="high"
@@ -115,7 +115,7 @@ export default function Home() {
             <span className="text-[#CA1421]">IPTV NEDERLAND</span>
           </h1>
           <p className="text-base sm:text-lg md:text-2xl text-[#F1E8DB]/80 max-w-3xl mx-auto mb-10 font-medium leading-relaxed px-2">
-            Ontdek het ultieme entertainmentaanbod met {CONSTANTS.BRAND_NAME}. Stream meer dan 20.000 live kanalen en 60.000+ films en series in haarscherpe 4K kwaliteit zonder buffering of haperingen.
+            Ontdek waarom positieve omni iptv ervaringen en sterke <strong>OmnIPTV</strong> reviews onze service tot de nummer 1 keuze maken. Stream 20.000+ live zenders in 4K zonder haperingen met <strong>OmnIPTV</strong>.
           </p>
           
           {/* Action Buttons */}
@@ -159,7 +159,7 @@ export default function Home() {
                  BEGIN MET KIJKEN IN <br/><span className="text-[#1A1A1D]">3 SIMPELE STAPPEN</span>
                </h2>
                <p className="text-[#F1E8DB] text-lg mt-6 font-bold">
-                 Binnen 5 minuten na bestelling geniet u van al uw favoriete live sport, Nederlandse zenders en bioscoopfilms.
+                 Lees onze handleiding over hoe werkt omni iptv en configureer uw <strong>OmnIPTV</strong> afspeellijst binnen 5 minuten na bestelling.
                </p>
             </div>
           </FadeIn>
@@ -171,7 +171,7 @@ export default function Home() {
               </div>
               <h3 className="text-2xl font-black text-[#F1E8DB] mb-4 tracking-tighter uppercase">1. Kies Uw Pakket</h3>
               <p className="text-[#FCA9FE] text-base font-bold leading-relaxed">
-                Selecteer de gewenste abonnementsduur en het aantal schermen voor uw huishouden.
+                Selecteer de gewenste abonnementsduur en het aantal schermen voor uw huishouden bij <strong>OmnIPTV</strong>.
               </p>
             </FadeInItem>
 
@@ -182,7 +182,7 @@ export default function Home() {
               </div>
               <h3 className="text-2xl font-black text-[#F1E8DB] mb-4 tracking-tighter uppercase">2. Ontvang Gegevens</h3>
               <p className="text-[#FCA9FE] text-base font-bold leading-relaxed">
-                Ontvang binnen 5 minuten uw M3U-link en Xtream codes direct via WhatsApp en e-mail.
+                Ontvang binnen 5 minuten uw M3U-link en Xtream codes direct via WhatsApp en e-mail om <strong>OmnIPTV</strong> te activeren.
               </p>
             </FadeInItem>
 
@@ -193,7 +193,7 @@ export default function Home() {
               </div>
               <h3 className="text-2xl font-black text-[#F1E8DB] mb-4 tracking-tighter uppercase">3. Direct Kijken</h3>
               <p className="text-[#FCA9FE] text-base font-bold leading-relaxed">
-                Voer uw inloggegevens in op uw Smart TV, Firestick of IPTV app en geniet direct in 4K.
+                Voer uw inloggegevens in op uw Smart TV, Firestick of IPTV app en geniet direct van <strong>OmnIPTV</strong> in 4K.
               </p>
             </FadeInItem>
           </FadeInStagger>
@@ -215,7 +215,7 @@ export default function Home() {
           <div className="w-full max-w-[1100px] px-6 h-auto aspect-[5/2] flex justify-center items-center">
             <Image
               src="/img/sofa.webp"
-              alt={`${CONSTANTS.BRAND_NAME} bioscoopkwaliteit IPTV streaming in de woonkamer`}
+              alt={`OmnIPTV bioscoopkwaliteit IPTV streaming in de woonkamer`}
               width={1200}
               height={480}
               loading="lazy"
@@ -227,7 +227,7 @@ export default function Home() {
 
         <div className="w-full max-w-3xl px-4 text-center mt-10">
           <p className="text-base md:text-lg leading-relaxed text-[#FCA9FE] font-bold">
-            Geniet van ongecomprimeerde 4K livestreams en uw favoriete series vanuit het comfort van uw eigen bank. {CONSTANTS.BRAND_NAME} levert stabiele premium verbindingen rechtstreeks naar al uw Smart TV apparaten.
+            Geniet van ongecomprimeerde 4K livestreams en uw favoriete series vanuit uw eigen bank. Vraag direct een gratis omni iptv test aan via WhatsApp om <strong>OmnIPTV</strong> zelf te ervaren.
           </p>
           <div className="w-full flex justify-center mt-8">
             <Link 
@@ -248,7 +248,7 @@ export default function Home() {
               HET MEEST COMPLETE ZENDERAANBOD
             </h2>
             <p className="text-[#141417] font-bold text-lg">
-              Toegang tot meer dan 20.000 live televisiezenders en 60.000+ VOD films en series met Nederlandse ondertiteling.
+              Toegang tot meer dan 20.000 live televisiezenders en 60.000+ VOD films en series met Nederlandse ondertiteling bij <strong>OmnIPTV</strong>.
             </p>
           </div>
         </FadeIn>
@@ -324,7 +324,7 @@ export default function Home() {
               {CONSTANTS.BRAND_NAME} IN CIJFERS
             </h3>
             <p className="text-[#FCA9FE] text-base font-bold mt-4">
-              Bewezen betrouwbaarheid en tevreden kijkers door heel Nederland en België.
+              Bewezen betrouwbaarheid en tevreden kijkers door heel Nederland en België met <strong>OmnIPTV</strong>.
             </p>
           </FadeIn>
           <FadeInStagger className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 text-center">
@@ -369,7 +369,7 @@ export default function Home() {
               WAAROM KIEZEN VOOR {CONSTANTS.BRAND_NAME}?
             </h2>
             <p className="text-[#FCA9FE] font-bold text-lg max-w-3xl mx-auto">
-              Ontdek waarom duizenden Nederlandse huishoudens overstappen naar onze stabiele IPTV service.
+              Ontdek waarom duizenden Nederlandse huishoudens overstappen naar onze stabiele <strong>OmnIPTV</strong> service.
             </p>
           </FadeIn>
           <FadeInStagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10">
@@ -377,22 +377,22 @@ export default function Home() {
               { 
                 icon: Database, 
                 title: "Enorme Content Bibliotheek", 
-                desc: `${CONSTANTS.BRAND_NAME} biedt meer dan 20.000 live tv-zenders en 60.000+ films en series die dagelijks worden bijgewerkt.` 
+                desc: `Elk OmnIPTV abonnement biedt meer dan 20.000 live tv-zenders en 60.000+ films en series die dagelijks worden bijgewerkt.` 
               },
               { 
                 icon: Activity, 
                 title: "Anti-Freeze Technologie", 
-                desc: "Onze geavanceerde servers voorkomen automatisch buffering en haperingen tijdens populaire live sportwedstrijden." 
+                desc: "Onze geavanceerde OmnIPTV servers voorkomen automatisch buffering en haperingen tijdens populaire live sportwedstrijden." 
               },
               { 
                 icon: Server, 
                 title: "Europese Supersnelle Servers", 
-                desc: "Dedicated high-speed servers in Nederland en Duitsland garanderen een razendsnelle zaptijd en constante 4K kwaliteit." 
+                desc: "Dedicated high-speed servers in Nederland en Duitsland garanderen een razendsnelle zaptijd en constante 4K kwaliteit voor OmnIPTV." 
               },
               { 
                 icon: Trophy, 
                 title: "Alle Sportkanalen Inbegrepen", 
-                desc: "Bekijk de Eredivisie, Champions League, Formule 1, Viaplay, Ziggo Sport en alle grote vechtsport PPV evenementen." 
+                desc: "Bekijk de Eredivisie, Champions League, Formule 1, Viaplay, Ziggo Sport en alle grote vechtsport PPV evenementen via OmnIPTV." 
               },
               { 
                 icon: Calendar, 
@@ -428,7 +428,7 @@ export default function Home() {
               ZENDERCATEGORIEËN
             </h2>
             <p className="text-[#FCA9FE] font-bold text-lg max-w-3xl mx-auto">
-              Ons aanbod dekt al uw favoriete live sport, Nederlandse televisie en internationale kanalen.
+              Ons OmnIPTV aanbod dekt al uw favoriete live sport, Nederlandse televisie en internationale kanalen.
             </p>
           </FadeIn>
           <FadeInStagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -467,7 +467,7 @@ export default function Home() {
               <div className="relative aspect-[4/3] overflow-hidden rounded-2xl sm:aspect-video lg:aspect-[5/4]">
                 <Image
                   src="/img/image-1.webp"
-                  alt={`${CONSTANTS.BRAND_NAME} 4K Ultra HD IPTV streaming kwaliteit op Smart TV`}
+                  alt={`OmnIPTV 4K Ultra HD streaming kwaliteit op Smart TV`}
                   width={800}
                   height={600}
                   loading="lazy"
@@ -485,7 +485,7 @@ export default function Home() {
                     <div>
                       <p className="text-lg font-black uppercase text-[#F1E8DB]">Haarscherpe Streams</p>
                       <p className="text-xs font-bold text-[#FCA9FE]">
-                        Geniet van ongecomprimeerde 4K resolutie en 60fps vloeiende live uitzendingen.
+                        Geniet van ongecomprimeerde 4K resolutie en 60fps vloeiende live uitzendingen met OmnIPTV.
                       </p>
                     </div>
                   </div>
@@ -500,7 +500,7 @@ export default function Home() {
                 ERVAAR ONGEËVENAARDE <span className="text-[#CA1421]">4K BEELDKWALITEIT</span>
               </h3>
               <p className="mt-6 text-base leading-relaxed text-[#FCA9FE] font-bold">
-                Dankzij onze krachtige servers heeft u direct toegang tot stabiele digitale televisiekanalen. {CONSTANTS.BRAND_NAME} levert naadloze streams op al uw apparaten zonder kwaliteitsverlies.
+                Dankzij onze krachtige servers heeft u direct toegang tot stabiele digitale televisiekanalen. <strong>OmnIPTV</strong> levert naadloze streams op al uw apparaten zonder kwaliteitsverlies.
               </p>
               <div className="mt-7 grid grid-cols-1 gap-3 sm:grid-cols-2">
                 {[
@@ -534,7 +534,7 @@ export default function Home() {
                 MIS GEEN ENKELE <span className="text-[#DB4439]">LIVE WEDSTRIJD</span>
               </h3>
               <p className="mt-6 text-base leading-relaxed text-[#FCA9FE] font-bold">
-                Sportliefhebbers kijken onbeperkt naar de Eredivisie, Champions League, Formule 1, UFC en Premier League. {CONSTANTS.BRAND_NAME} streamt alle live evenementen in 50/60fps met minimale vertraging.
+                Sportliefhebbers kijken onbeperkt naar de Eredivisie, Champions League, Formule 1, UFC en Premier League. Met een actief <strong>OmnIPTV</strong> abonnement streamt u alle live evenementen in 50/60fps met minimale vertraging.
               </p>
               <div className="mt-7 grid grid-cols-1 gap-3 sm:grid-cols-2">
                 {[
@@ -560,7 +560,7 @@ export default function Home() {
               <div className="relative aspect-[4/3] overflow-hidden rounded-2xl sm:aspect-video lg:aspect-[5/4]">
                 <Image
                   src="/img/bg-1.webp"
-                  alt={`${CONSTANTS.BRAND_NAME} live sport Eredivisie en Formule 1 uitzendingen`}
+                  alt={`OmnIPTV live sport Eredivisie en Formule 1 uitzendingen`}
                   width={800}
                   height={600}
                   loading="lazy"
@@ -596,10 +596,10 @@ export default function Home() {
               <span className="text-[#FCA9FE] font-bold text-sm uppercase tracking-wider">Vergelijking</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-black text-[#F1E8DB] mb-6 uppercase tracking-tight">
-              {CONSTANTS.BRAND_NAME} VS TRADITIONELE KABEL
+              OmnIPTV VS TRADITIONELE KABEL
             </h2>
             <p className="text-[#F1E8DB]/60 text-lg max-w-3xl mx-auto">
-              Ontdek waarom duizenden overstappen op {CONSTANTS.BRAND_NAME}: voordeliger, flexibeler en véél meer zenders.
+              Ontdek waarom duizenden overstappen op <strong>OmnIPTV</strong>: voordeliger, flexibeler en véél meer zenders dan kabel-tv.
             </p>
           </FadeIn>
 
@@ -608,7 +608,7 @@ export default function Home() {
             <div className="bg-gradient-to-br from-[#1A1A1D]/80 to-black/80 backdrop-blur-sm rounded-3xl border border-white/10 overflow-hidden">
               <div className="grid grid-cols-3 gap-0">
                 <div className="p-6 border-b border-r border-white/10 bg-white/5"><h3 className="text-xl font-bold text-white">Functies</h3></div>
-                <div className="p-6 border-b border-r border-white/10 bg-gradient-to-r from-[#CA1421]/10 to-transparent"><h3 className="text-xl font-bold text-[#FCA9FE]">{CONSTANTS.BRAND_NAME}</h3></div>
+                <div className="p-6 border-b border-r border-white/10 bg-gradient-to-r from-[#CA1421]/10 to-transparent"><h3 className="text-xl font-bold text-[#FCA9FE]">OmnIPTV</h3></div>
                 <div className="p-6 border-b border-white/10"><h3 className="text-xl font-bold text-white/40">Traditionele Kabel</h3></div>
                 
                 {[
@@ -663,7 +663,7 @@ export default function Home() {
                 <div className="flex justify-between items-center">
                   <div className="text-left">
                     <div className="text-[#CA1421] font-bold text-lg">{row.us}</div>
-                    <div className="text-[#CA1421]/60 text-xs">{CONSTANTS.BRAND_NAME}</div>
+                    <div className="text-[#CA1421]/60 text-xs">OmnIPTV</div>
                   </div>
                   <div className="text-right">
                     <div className="text-white/40 line-through text-lg">{row.cable}</div>
@@ -676,12 +676,9 @@ export default function Home() {
         </div>
       </section>
 
-
-
-<section className="w-full max-w-4xl mx-auto px-4 my-8 flex justify-center items-center">
-  <ShareButtons />
-</section>
-
+      <section className="w-full max-w-4xl mx-auto px-4 my-8 flex justify-center items-center">
+        <ShareButtons />
+      </section>
 
       {/* Dutch Testimonials Section */}
       <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -690,24 +687,24 @@ export default function Home() {
             VERTROUWD DOOR MEER DAN <span className="text-[#CA1421]">20.000+ KLANTEN</span>
           </h2>
           <p className="text-[#FCA9FE] text-lg font-bold max-w-2xl mx-auto">
-            Lees de authentieke ervaringen van tevreden IPTV kijkers in Nederland en België.
+            Lees authentieke <strong>OmnIPTV</strong> ervaringen en reviews van tevreden IPTV kijkers in Nederland en België.
           </p>
         </FadeIn>
         <FadeInStagger className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {[
             { 
               name: "Daan V.", 
-              text: "Eindelijk een IPTV aanbieder die niet hapert tijdens de Klassieker of Formule 1 races. De 4K beeldkwaliteit op mijn OLED TV is geweldig scherp.", 
+              text: "Eindelijk een IPTV aanbieder die niet hapert tijdens de Klassieker of Formule 1 races. De 4K beeldkwaliteit op mijn OLED TV is geweldig scherp met OmnIPTV.", 
               role: "Amsterdam" 
             },
             { 
               name: "Sanne K.", 
-              text: "Mijn dure kabelabonnement direct opgezegd. Binnen 5 minuten geïnstalleerd op mijn Samsung Smart TV. Geweldige klantenservice via WhatsApp!", 
+              text: "Mijn dure kabelabonnement direct opgezegd. Binnen 5 minuten geïnstalleerd op mijn Samsung Smart TV dankzij de snelle OmnIPTV service.", 
               role: "Rotterdam" 
             },
             { 
               name: "Lars B.", 
-              text: "Enorm aanbod aan Nederlandse en buitenlandse zenders. Films hebben actuele Nederlandse ondertitels en de EPG tv-gids werkt perfect.", 
+              text: "Enorm aanbod aan Nederlandse en buitenlandse zenders. Films hebben actuele Nederlandse ondertitels en OmnIPTV werkt perfect.", 
               role: "Utrecht" 
             }
           ].map((testimonial, idx) => (
@@ -734,10 +731,10 @@ export default function Home() {
       <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center w-full relative">
         <FadeIn>
           <h2 className="text-4xl md:text-5xl font-black text-[#F1E8DB] mb-6 uppercase tracking-tight">
-            COMPATIBEL MET AL UW APPARATEN
+            COMPATIBEL MET ELKE OMNI IPTV PLAYER
           </h2>
           <p className="text-[#F1E8DB]/60 text-lg max-w-3xl mx-auto mb-16">
-            {CONSTANTS.BRAND_NAME} werkt soepel op al uw favoriete schermen. Installeer eenvoudig een IPTV app en begin direct met streamen.
+            <strong>OmnIPTV</strong> werkt soepel op al uw favoriete schermen. Configureer eenvoudig een player app en begin direct met streamen.
           </p>
         </FadeIn>
         <FadeInStagger className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 relative z-10">
@@ -773,7 +770,7 @@ export default function Home() {
               LAATSTE <span className="text-[#CA1421]">ARTIKELEN & HANDLEIDINGEN</span>
             </h2>
             <p className="text-[#FCA9FE] text-lg font-bold">
-              Lees onze handige tips over IPTV installatie, app-instellingen en de nieuwste updates.
+              Lees onze handige tips over OmnIPTV installatie, app-instellingen en de nieuwste updates.
             </p>
           </div>
           
@@ -795,7 +792,7 @@ export default function Home() {
                 <div className="relative aspect-video rounded-3xl overflow-hidden mb-6 bg-white/[0.01] border border-white/5 shadow-lg group-hover:border-[#DB4439]/40 transition-colors duration-300">
                   <Image 
                     src={post.image} 
-                    alt={`${post.title} - ${CONSTANTS.BRAND_NAME} Handleiding`} 
+                    alt={`${post.title} - OmnIPTV Handleiding`} 
                     width={800} 
                     height={450} 
                     loading="lazy" 
@@ -830,7 +827,7 @@ export default function Home() {
           <div className="relative overflow-hidden rounded-[2rem] border border-[#CA1421]/20 bg-black shadow-[0_0_80px_rgba(202,20,33,0.08)] lg:rounded-[3rem]">
             <Image
               src="/img/bg-2.webp"
-              alt={`${CONSTANTS.BRAND_NAME} stabiele IPTV verbinding en directe activatie`}
+              alt={`OmnIPTV stabiele verbinding en directe activatie`}
               width={1400}
               height={600}
               loading="lazy"
@@ -853,7 +850,7 @@ export default function Home() {
                 UPGRADE UW <br/><span className="text-[#CA1421]">TV ERVARING VANDAAG</span>
               </h2>
               <p className="mx-auto mt-6 max-w-3xl text-base leading-relaxed text-[#F1E8DB]/70 md:text-lg">
-                Krijg direct toegang tot alle sportkanalen, films en live televisie in 4K Ultra HD kwaliteit met {CONSTANTS.BRAND_NAME}. Snelle activatie binnen 5 minuten op al uw apparaten.
+                Krijg direct toegang tot alle sportkanalen, films en live televisie in 4K Ultra HD kwaliteit met <strong>OmnIPTV</strong>. Snelle activatie binnen 5 minuten op al uw apparaten.
               </p>
               <div className="mx-auto mt-10 grid max-w-4xl grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
                 {[

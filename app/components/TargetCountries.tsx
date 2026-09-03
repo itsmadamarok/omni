@@ -90,23 +90,26 @@ export default function CountryFlagsBar() {
           </span>
         </div>
 
-        {/* Responsive Circular Flags Row */}
-        <div className="flex items-center justify-center md:justify-between flex-wrap gap-3 sm:gap-6 flex-grow w-full md:w-auto">
-          {countries.map((c) => {
-            const Flag = c.flag;
-            return (
-              <div
-                key={c.code}
-                className="flex items-center gap-2 group cursor-default transition-all duration-300 hover:scale-105"
-              >
-                <Flag />
-                <span className="text-xs sm:text-sm font-bold text-[#F1E8DB]/80 group-hover:text-[#FCA9FE] transition-colors whitespace-nowrap">
-                  {c.name}
-                </span>
-              </div>
-            );
-          })}
+        {/* Responsive Scrollable / Flex Flags Row */}
+        <div className="w-full md:w-auto overflow-x-auto scrollbar-none py-1">
+          <div className="flex items-center justify-start md:justify-between flex-nowrap md:flex-wrap gap-4 sm:gap-6 min-w-max md:min-w-0">
+            {countries.map((c) => {
+              const Flag = c.flag;
+              return (
+                <div
+                  key={c.code}
+                  className="flex items-center gap-2 group cursor-default transition-all duration-300 hover:scale-105 shrink-0"
+                >
+                  <Flag />
+                  <span className="text-xs sm:text-sm font-bold text-[#F1E8DB]/80 group-hover:text-[#FCA9FE] transition-colors whitespace-nowrap">
+                    {c.name}
+                  </span>
+                </div>
+              );
+            })}
+          </div>
         </div>
+
       </div>
     </div>
   );

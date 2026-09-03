@@ -3,16 +3,19 @@ import { Metadata } from 'next';
 const DOMAIN = 'omniptv.one';
 const BRAND_NAME = 'OMNI IPTV';
 const FOCUS_KEYWORD = 'OMNI IPTV';
+const SECOND_FOCUS_KEYWORD = 'OmnIPTV'; // Combined variant for search coverage
 
 export const CONSTANTS = {
   DOMAIN,
   BRAND_NAME,
   FOCUS_KEYWORD,
+  SECOND_FOCUS_KEYWORD,
   SITE_URL: `https://${DOMAIN}`,
   
-  // Primary Focus Keywords (Top Dutch Search Terms)
+  // Primary Focus Keywords (Top Dutch Search Terms + Combined Brand Variation)
   PRIMARY_KEYWORDS: [
     'OMNI IPTV',
+    'OmniIPTV',
     'Beste IPTV',
     'IPTV Kopen',
     'IPTV Nederland',
@@ -34,7 +37,7 @@ export const CONSTANTS = {
   // Business Contact Details
   CONTACT: {
     email: 'support@omniptv.one',
-    phone: '+44 7549 589503', // NL mobile / WhatsApp standard format
+    phone: '+44 7549 589503',
     whatsapp: 'https://wa.me/447549589503',
     supportHours: '24/7 Klantenservice via WhatsApp en E-mail',
   },
@@ -68,7 +71,7 @@ export const generateSEOMetadata = (
   description?: string,
   path: string = '/'
 ): Metadata => {
-  const defaultDescription = `Ontdek ${BRAND_NAME}: de beste IPTV van Nederland. Direct IPTV kopen met 20.000+ live zenders, sport en films in 4K Ultra HD zonder haperingen.`;
+  const defaultDescription = `Ontdek ${BRAND_NAME} (${SECOND_FOCUS_KEYWORD}): de beste IPTV van Nederland. Direct IPTV kopen met 20.000+ live zenders, sport en films in 4K Ultra HD zonder haperingen.`;
   const pageTitle = `${pageName} | ${BRAND_NAME} - Beste IPTV Kopen Nederland 2026`;
 
   return {

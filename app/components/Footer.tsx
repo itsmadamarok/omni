@@ -162,9 +162,9 @@ export default function Footer() {
 
           {/* Navigatie (~20% on Desktop) */}
           <div className="lg:col-span-2">
-            <h4 className="text-[#F1E8DB] font-black mb-5 tracking-widest uppercase text-sm border-b-2 border-[#CA1421] pb-1 inline-block">
+            <h3 className="text-[#F1E8DB] font-black mb-5 tracking-widest uppercase text-sm border-b-2 border-[#CA1421] pb-1 inline-block">
               Navigatie
-            </h4>
+            </h3>
             <ul className="space-y-3 text-sm font-bold">
               <li>
                 <Link href="/" className="text-[#F1E8DB]/60 hover:text-[#FCA9FE] transition-colors">
@@ -206,9 +206,9 @@ export default function Footer() {
 
           {/* Centered Zenderpakketten (~20% on Desktop - Cleaned Names, No 4K Label) */}
           <div className="lg:col-span-3">
-            <h4 className="text-[#F1E8DB] font-black mb-5 tracking-widest uppercase text-sm border-b-2 border-[#CA1421] pb-1 inline-block">
+            <h3 className="text-[#F1E8DB] font-black mb-5 tracking-widest uppercase text-sm border-b-2 border-[#CA1421] pb-1 inline-block">
               Zenderpakketten
-            </h4>
+            </h3>
             <ul className="space-y-3 text-sm font-bold">
               {channelsData.map((category) => (
                 <li key={category.slug}>
@@ -225,9 +225,9 @@ export default function Footer() {
 
           {/* Juridisch (~20% on Desktop) */}
           <div className="lg:col-span-2">
-            <h4 className="text-[#F1E8DB] font-black mb-5 tracking-widest uppercase text-sm border-b-2 border-[#CA1421] pb-1 inline-block">
+            <h3 className="text-[#F1E8DB] font-black mb-5 tracking-widest uppercase text-sm border-b-2 border-[#CA1421] pb-1 inline-block">
               Juridisch
-            </h4>
+            </h3>
             <ul className="space-y-3 text-sm font-bold">
               <li>
                 <Link href="/over-ons" className="text-[#F1E8DB]/60 hover:text-[#FCA9FE] transition-colors">

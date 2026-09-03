@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     site: `@${CONSTANTS.BRAND_NAME}`,
   },
   verification: {
-    google: '',
+    google: 'G-6NR51QZXKL',
   },
   category: 'entertainment',
   keywords: [
@@ -72,6 +72,10 @@ export const metadata: Metadata = {
     `${CONSTANTS.FOCUS_KEYWORD} guide`,
     `${CONSTANTS.FOCUS_KEYWORD} service`,
     `${CONSTANTS.FOCUS_KEYWORD} official website`,
+    'OmniIPTV',
+    'omni iptv reviews',
+    'omni iptv ervaringen',
+    'omni iptv test',
     'IPTV subscription cost',
     'best IPTV price',
     'cheap IPTV subscription',
@@ -86,11 +90,6 @@ export const metadata: Metadata = {
     'international channels',
     'IPTV 2026',
     'iptv free trial',
-    'iptv encoder box',
-    '4k iptv encoder',
-    'iptv encoder hdmi',
-    'marinios iptv',
-    'lexonstream iptv',
     'IPTV abonnement Nederland',
     'IPTV kopen iDEAL',
     'IPTV abonnement België',
@@ -112,474 +111,61 @@ const PricingPageSchema = () => (
         "name": `${CONSTANTS.BRAND_NAME} IPTV Subscription Plans`,
         "alternateName": CONSTANTS.FOCUS_KEYWORD,
         "image": `https://${CONSTANTS.DOMAIN}/img/structer.webp`,
-        "description": `Premium IPTV service met multi-device abonnementen vanaf €14,99. Krijg toegang tot 20.000+ live zenders en 60.000+ VODs in 4K & Full HD. ${CONSTANTS.FOCUS_KEYWORD} biedt de beste waarde voor digitale entertainment.`,
+        "description": `Premium IPTV service met multi-device abonnementen vanaf €14,99. Krijg toegang tot 20.000+ live zenders en 60.000+ VODs in 4K & Full HD. OmniIPTV biedt de beste waarde voor digitale entertainment.`,
         "brand": {
           "@type": "Brand",
           "name": CONSTANTS.BRAND_NAME
         },
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "reviewCount": "5000",
-          "bestRating": "5",
-          "worstRating": "1"
-        },
         "offers": [
-          // 1 Device Plans
           {
             "@type": "Offer",
-            "name": "1 Device - 1 Month",
-            "price": "14.99",
+            "name": "1 Scherm - 3 Maanden",
+            "price": "25.00",
             "priceCurrency": "EUR",
             "priceValidUntil": "2027-12-31",
             "availability": "https://schema.org/OnlineOnly",
             "url": `https://${CONSTANTS.DOMAIN}/pakketten`,
-            "description": `1 maand ${CONSTANTS.FOCUS_KEYWORD} toegang op 1 apparaat met 20.000+ live zenders en 60.000+ VODs`,
-            "shippingDetails": {
-              "@type": "OfferShippingDetails",
-              "shippingRate": {
-                "@type": "MonetaryAmount",
-                "value": "0",
-                "currency": "EUR"
-              },
-              "deliveryTime": {
-                "@type": "ShippingDeliveryTime",
-                "handlingTime": {
-                  "@type": "QuantitativeValue",
-                  "minValue": 0,
-                  "maxValue": 1,
-                  "unitCode": "h"
-                },
-                "transitTime": {
-                  "@type": "QuantitativeValue",
-                  "minValue": 0,
-                  "maxValue": 0,
-                  "unitCode": "h"
-                }
-              }
-            },
-            "hasMerchantReturnPolicy": {
-              "@type": "MerchantReturnPolicy",
-              "applicableCountry": "NL",
-              "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-              "merchantReturnDays": 7,
-              "returnMethod": "https://schema.org/ReturnByMail",
-              "returnFees": "https://schema.org/FreeReturn"
-            }
+            "description": `3 maanden OmniIPTV toegang op 1 apparaat met 20.000+ live zenders en 60.000+ VODs`
           },
           {
             "@type": "Offer",
-            "name": "1 Device - 3 Months",
-            "price": "34.99",
+            "name": "1 Scherm - 6 Maanden",
+            "price": "35.00",
             "priceCurrency": "EUR",
             "priceValidUntil": "2027-12-31",
             "availability": "https://schema.org/OnlineOnly",
             "url": `https://${CONSTANTS.DOMAIN}/pakketten`,
-            "description": `3 maanden ${CONSTANTS.FOCUS_KEYWORD} toegang op 1 apparaat met 20.000+ live zenders en 60.000+ VODs`,
-            "shippingDetails": {
-              "@type": "OfferShippingDetails",
-              "shippingRate": {
-                "@type": "MonetaryAmount",
-                "value": "0",
-                "currency": "EUR"
-              },
-              "deliveryTime": {
-                "@type": "ShippingDeliveryTime",
-                "handlingTime": {
-                  "@type": "QuantitativeValue",
-                  "minValue": 0,
-                  "maxValue": 1,
-                  "unitCode": "h"
-                },
-                "transitTime": {
-                  "@type": "QuantitativeValue",
-                  "minValue": 0,
-                  "maxValue": 0,
-                  "unitCode": "h"
-                }
-              }
-            },
-            "hasMerchantReturnPolicy": {
-              "@type": "MerchantReturnPolicy",
-              "applicableCountry": "NL",
-              "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-              "merchantReturnDays": 7,
-              "returnMethod": "https://schema.org/ReturnByMail",
-              "returnFees": "https://schema.org/FreeReturn"
-            }
+            "description": `6 maanden OmniIPTV toegang op 1 apparaat met 20.000+ live zenders en 60.000+ VODs`
           },
           {
             "@type": "Offer",
-            "name": "1 Device - 6 Months",
-            "price": "54.99",
+            "name": "1 Scherm - 12 Maanden",
+            "price": "49.00",
             "priceCurrency": "EUR",
             "priceValidUntil": "2027-12-31",
             "availability": "https://schema.org/OnlineOnly",
             "url": `https://${CONSTANTS.DOMAIN}/pakketten`,
-            "description": `6 maanden ${CONSTANTS.FOCUS_KEYWORD} toegang op 1 apparaat met 20.000+ live zenders en 60.000+ VODs`,
-            "shippingDetails": {
-              "@type": "OfferShippingDetails",
-              "shippingRate": {
-                "@type": "MonetaryAmount",
-                "value": "0",
-                "currency": "EUR"
-              },
-              "deliveryTime": {
-                "@type": "ShippingDeliveryTime",
-                "handlingTime": {
-                  "@type": "QuantitativeValue",
-                  "minValue": 0,
-                  "maxValue": 1,
-                  "unitCode": "h"
-                },
-                "transitTime": {
-                  "@type": "QuantitativeValue",
-                  "minValue": 0,
-                  "maxValue": 0,
-                  "unitCode": "h"
-                }
-              }
-            },
-            "hasMerchantReturnPolicy": {
-              "@type": "MerchantReturnPolicy",
-              "applicableCountry": "NL",
-              "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-              "merchantReturnDays": 7,
-              "returnMethod": "https://schema.org/ReturnByMail",
-              "returnFees": "https://schema.org/FreeReturn"
-            }
+            "description": `12 maanden OmniIPTV toegang op 1 apparaat met 20.000+ live zenders en 60.000+ VODs`
           },
           {
             "@type": "Offer",
-            "name": "1 Device - 12 Months",
-            "price": "74.99",
+            "name": "2 Schermen - 12 Maanden",
+            "price": "110.00",
             "priceCurrency": "EUR",
             "priceValidUntil": "2027-12-31",
             "availability": "https://schema.org/OnlineOnly",
             "url": `https://${CONSTANTS.DOMAIN}/pakketten`,
-            "description": `12 maanden ${CONSTANTS.FOCUS_KEYWORD} toegang op 1 apparaat met 20.000+ live zenders en 60.000+ VODs`,
-            "shippingDetails": {
-              "@type": "OfferShippingDetails",
-              "shippingRate": {
-                "@type": "MonetaryAmount",
-                "value": "0",
-                "currency": "EUR"
-              },
-              "deliveryTime": {
-                "@type": "ShippingDeliveryTime",
-                "handlingTime": {
-                  "@type": "QuantitativeValue",
-                  "minValue": 0,
-                  "maxValue": 1,
-                  "unitCode": "h"
-                },
-                "transitTime": {
-                  "@type": "QuantitativeValue",
-                  "minValue": 0,
-                  "maxValue": 0,
-                  "unitCode": "h"
-                }
-              }
-            },
-            "hasMerchantReturnPolicy": {
-              "@type": "MerchantReturnPolicy",
-              "applicableCountry": "NL",
-              "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-              "merchantReturnDays": 7,
-              "returnMethod": "https://schema.org/ReturnByMail",
-              "returnFees": "https://schema.org/FreeReturn"
-            }
-          },
-
-          // 2 Devices Plans (Multi-Room)
-          {
-            "@type": "Offer",
-            "name": "2 Devices - 1 Month",
-            "price": "22.99",
-            "priceCurrency": "EUR",
-            "priceValidUntil": "2027-12-31",
-            "availability": "https://schema.org/OnlineOnly",
-            "url": `https://${CONSTANTS.DOMAIN}/pakketten`,
-            "description": `1 maand ${CONSTANTS.FOCUS_KEYWORD} toegang op 2 apparaten met 20.000+ live zenders en 60.000+ VODs`,
-            "shippingDetails": {
-              "@type": "OfferShippingDetails",
-              "shippingRate": {
-                "@type": "MonetaryAmount",
-                "value": "0",
-                "currency": "EUR"
-              },
-              "deliveryTime": {
-                "@type": "ShippingDeliveryTime",
-                "handlingTime": {
-                  "@type": "QuantitativeValue",
-                  "minValue": 0,
-                  "maxValue": 1,
-                  "unitCode": "h"
-                },
-                "transitTime": {
-                  "@type": "QuantitativeValue",
-                  "minValue": 0,
-                  "maxValue": 0,
-                  "unitCode": "h"
-                }
-              }
-            },
-            "hasMerchantReturnPolicy": {
-              "@type": "MerchantReturnPolicy",
-              "applicableCountry": "NL",
-              "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-              "merchantReturnDays": 7,
-              "returnMethod": "https://schema.org/ReturnByMail",
-              "returnFees": "https://schema.org/FreeReturn"
-            }
+            "description": `12 maanden OmniIPTV toegang op 2 apparaten met 20.000+ live zenders en 60.000+ VODs`
           },
           {
             "@type": "Offer",
-            "name": "2 Devices - 3 Months",
-            "price": "49.99",
+            "name": "3 Schermen - 12 Maanden",
+            "price": "150.00",
             "priceCurrency": "EUR",
             "priceValidUntil": "2027-12-31",
             "availability": "https://schema.org/OnlineOnly",
             "url": `https://${CONSTANTS.DOMAIN}/pakketten`,
-            "description": `3 maanden ${CONSTANTS.FOCUS_KEYWORD} toegang op 2 apparaten met 20.000+ live zenders en 60.000+ VODs`,
-            "shippingDetails": {
-              "@type": "OfferShippingDetails",
-              "shippingRate": {
-                "@type": "MonetaryAmount",
-                "value": "0",
-                "currency": "EUR"
-              },
-              "deliveryTime": {
-                "@type": "ShippingDeliveryTime",
-                "handlingTime": {
-                  "@type": "QuantitativeValue",
-                  "minValue": 0,
-                  "maxValue": 1,
-                  "unitCode": "h"
-                },
-                "transitTime": {
-                  "@type": "QuantitativeValue",
-                  "minValue": 0,
-                  "maxValue": 0,
-                  "unitCode": "h"
-                }
-              }
-            },
-            "hasMerchantReturnPolicy": {
-              "@type": "MerchantReturnPolicy",
-              "applicableCountry": "NL",
-              "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-              "merchantReturnDays": 7,
-              "returnMethod": "https://schema.org/ReturnByMail",
-              "returnFees": "https://schema.org/FreeReturn"
-            }
-          },
-          {
-            "@type": "Offer",
-            "name": "2 Devices - 6 Months",
-            "price": "79.99",
-            "priceCurrency": "EUR",
-            "priceValidUntil": "2027-12-31",
-            "availability": "https://schema.org/OnlineOnly",
-            "url": `https://${CONSTANTS.DOMAIN}/pakketten`,
-            "description": `6 maanden ${CONSTANTS.FOCUS_KEYWORD} toegang op 2 apparaten met 20.000+ live zenders en 60.000+ VODs`,
-            "shippingDetails": {
-              "@type": "OfferShippingDetails",
-              "shippingRate": {
-                "@type": "MonetaryAmount",
-                "value": "0",
-                "currency": "EUR"
-              },
-              "deliveryTime": {
-                "@type": "ShippingDeliveryTime",
-                "handlingTime": {
-                  "@type": "QuantitativeValue",
-                  "minValue": 0,
-                  "maxValue": 1,
-                  "unitCode": "h"
-                },
-                "transitTime": {
-                  "@type": "QuantitativeValue",
-                  "minValue": 0,
-                  "maxValue": 0,
-                  "unitCode": "h"
-                }
-              }
-            },
-            "hasMerchantReturnPolicy": {
-              "@type": "MerchantReturnPolicy",
-              "applicableCountry": "NL",
-              "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-              "merchantReturnDays": 7,
-              "returnMethod": "https://schema.org/ReturnByMail",
-              "returnFees": "https://schema.org/FreeReturn"
-            }
-          },
-          {
-            "@type": "Offer",
-            "name": "2 Devices - 12 Months",
-            "price": "109.99",
-            "priceCurrency": "EUR",
-            "priceValidUntil": "2027-12-31",
-            "availability": "https://schema.org/OnlineOnly",
-            "url": `https://${CONSTANTS.DOMAIN}/pakketten`,
-            "description": `12 maanden ${CONSTANTS.FOCUS_KEYWORD} toegang op 2 apparaten met 20.000+ live zenders en 60.000+ VODs`,
-            "shippingDetails": {
-              "@type": "OfferShippingDetails",
-              "shippingRate": {
-                "@type": "MonetaryAmount",
-                "value": "0",
-                "currency": "EUR"
-              },
-              "deliveryTime": {
-                "@type": "ShippingDeliveryTime",
-                "handlingTime": {
-                  "@type": "QuantitativeValue",
-                  "minValue": 0,
-                  "maxValue": 1,
-                  "unitCode": "h"
-                },
-                "transitTime": {
-                  "@type": "QuantitativeValue",
-                  "minValue": 0,
-                  "maxValue": 0,
-                  "unitCode": "h"
-                }
-              }
-            },
-            "hasMerchantReturnPolicy": {
-              "@type": "MerchantReturnPolicy",
-              "applicableCountry": "NL",
-              "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-              "merchantReturnDays": 7,
-              "returnMethod": "https://schema.org/ReturnByMail",
-              "returnFees": "https://schema.org/FreeReturn"
-            }
-          },
-
-          // 3 Devices Plans
-          {
-            "@type": "Offer",
-            "name": "3 Devices - 3 Months",
-            "price": "65.00",
-            "priceCurrency": "EUR",
-            "priceValidUntil": "2027-12-31",
-            "availability": "https://schema.org/OnlineOnly",
-            "url": `https://${CONSTANTS.DOMAIN}/pakketten`,
-            "description": `3 maanden ${CONSTANTS.FOCUS_KEYWORD} toegang op 3 apparaten met 20.000+ live zenders en 60.000+ VODs`,
-            "shippingDetails": {
-              "@type": "OfferShippingDetails",
-              "shippingRate": {
-                "@type": "MonetaryAmount",
-                "value": "0",
-                "currency": "EUR"
-              },
-              "deliveryTime": {
-                "@type": "ShippingDeliveryTime",
-                "handlingTime": {
-                  "@type": "QuantitativeValue",
-                  "minValue": 0,
-                  "maxValue": 1,
-                  "unitCode": "h"
-                },
-                "transitTime": {
-                  "@type": "QuantitativeValue",
-                  "minValue": 0,
-                  "maxValue": 0,
-                  "unitCode": "h"
-                }
-              }
-            },
-            "hasMerchantReturnPolicy": {
-              "@type": "MerchantReturnPolicy",
-              "applicableCountry": "NL",
-              "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-              "merchantReturnDays": 7,
-              "returnMethod": "https://schema.org/ReturnByMail",
-              "returnFees": "https://schema.org/FreeReturn"
-            }
-          },
-          {
-            "@type": "Offer",
-            "name": "3 Devices - 6 Months",
-            "price": "105.00",
-            "priceCurrency": "EUR",
-            "priceValidUntil": "2027-12-31",
-            "availability": "https://schema.org/OnlineOnly",
-            "url": `https://${CONSTANTS.DOMAIN}/pakketten`,
-            "description": `6 maanden ${CONSTANTS.FOCUS_KEYWORD} toegang op 3 apparaten met 20.000+ live zenders en 60.000+ VODs`,
-            "shippingDetails": {
-              "@type": "OfferShippingDetails",
-              "shippingRate": {
-                "@type": "MonetaryAmount",
-                "value": "0",
-                "currency": "EUR"
-              },
-              "deliveryTime": {
-                "@type": "ShippingDeliveryTime",
-                "handlingTime": {
-                  "@type": "QuantitativeValue",
-                  "minValue": 0,
-                  "maxValue": 1,
-                  "unitCode": "h"
-                },
-                "transitTime": {
-                  "@type": "QuantitativeValue",
-                  "minValue": 0,
-                  "maxValue": 0,
-                  "unitCode": "h"
-                }
-              }
-            },
-            "hasMerchantReturnPolicy": {
-              "@type": "MerchantReturnPolicy",
-              "applicableCountry": "NL",
-              "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-              "merchantReturnDays": 7,
-              "returnMethod": "https://schema.org/ReturnByMail",
-              "returnFees": "https://schema.org/FreeReturn"
-            }
-          },
-          {
-            "@type": "Offer",
-            "name": "3 Devices - 12 Months",
-            "price": "145.00",
-            "priceCurrency": "EUR",
-            "priceValidUntil": "2027-12-31",
-            "availability": "https://schema.org/OnlineOnly",
-            "url": `https://${CONSTANTS.DOMAIN}/pakketten`,
-            "description": `12 maanden ${CONSTANTS.FOCUS_KEYWORD} toegang op 3 apparaten met 20.000+ live zenders en 60.000+ VODs`,
-            "shippingDetails": {
-              "@type": "OfferShippingDetails",
-              "shippingRate": {
-                "@type": "MonetaryAmount",
-                "value": "0",
-                "currency": "EUR"
-              },
-              "deliveryTime": {
-                "@type": "ShippingDeliveryTime",
-                "handlingTime": {
-                  "@type": "QuantitativeValue",
-                  "minValue": 0,
-                  "maxValue": 1,
-                  "unitCode": "h"
-                },
-                "transitTime": {
-                  "@type": "QuantitativeValue",
-                  "minValue": 0,
-                  "maxValue": 0,
-                  "unitCode": "h"
-                }
-              }
-            },
-            "hasMerchantReturnPolicy": {
-              "@type": "MerchantReturnPolicy",
-              "applicableCountry": "NL",
-              "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-              "merchantReturnDays": 7,
-              "returnMethod": "https://schema.org/ReturnByMail",
-              "returnFees": "https://schema.org/FreeReturn"
-            }
+            "description": `12 maanden OmniIPTV toegang op 3 apparaten met 20.000+ live zenders en 60.000+ VODs`
           }
         ]
       })
@@ -600,66 +186,26 @@ const PricingFAQSchema = () => (
         "mainEntity": [
           {
             "@type": "Question",
-            "name": `Welke betaalmethoden accepteert ${CONSTANTS.FOCUS_KEYWORD}?`,
+            "name": `Welke betaalmethoden accepteert OmniIPTV?`,
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": `${CONSTANTS.FOCUS_KEYWORD} accepteert iDEAL, Bancontact, alle grote creditcards (Visa, Mastercard, American Express), PayPal en cryptovaluta (Bitcoin, Ethereum, USDT) via een beveiligde SSL-verbinding.`
+              "text": `OmniIPTV accepteert iDEAL, Bancontact, alle grote creditcards (Visa, Mastercard), PayPal en cryptovaluta via een beveiligde SSL-verbinding.`
             }
           },
           {
             "@type": "Question",
-            "name": `Kan ik mijn ${CONSTANTS.FOCUS_KEYWORD} pakket later upgraden of aanpassen?`,
+            "name": `Zit ik vast aan een contract bij OmniIPTV?`,
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": `Ja, u kunt uw ${CONSTANTS.FOCUS_KEYWORD} pakket op elk moment upgraden naar meerdere schermen of een langere periode. Neem contact op met onze WhatsApp helpdesk en wij passen uw account direct aan.`
+              "text": `Nee, er zijn geen contracten of automatische verlengingen bij OmniIPTV. Alle abonnementen zijn eenmalig prepaid zonder verborgen kosten.`
             }
           },
           {
             "@type": "Question",
-            "name": `Zit ik vast aan een contract bij ${CONSTANTS.FOCUS_KEYWORD}?`,
+            "name": `Biedt OmniIPTV een terugbetalingsgarantie?`,
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": `Nee, er zijn geen contracten of automatische verlengingen bij ${CONSTANTS.FOCUS_KEYWORD}. Alle abonnementen zijn eenmalig prepaid en stoppen vanzelf zonder verborgen kosten of administratiekosten.`
-            }
-          },
-          {
-            "@type": "Question",
-            "name": `Biedt ${CONSTANTS.FOCUS_KEYWORD} een terugbetalingsgarantie?`,
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": `Ja, ${CONSTANTS.FOCUS_KEYWORD} biedt een 7 dagen niet-goed-geld-terug-garantie op alle pakketten. Mocht u aanhoudende serverproblemen ervaren die onze helpdesk niet kan oplossen, dan ontvangt u een volledige terugbetaling.`
-            }
-          },
-          {
-            "@type": "Question",
-            "name": `Kan ik ${CONSTANTS.FOCUS_KEYWORD} op meerdere apparaten tegelijk gebruiken?`,
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": `Ja, afhankelijk van uw gekozen ${CONSTANTS.FOCUS_KEYWORD} pakket. Het 1-scherm pakket ondersteunt 1 gelijktijdige stream, het 2-schermen pakket ondersteunt 2 gelijktijdige streams, en het 3-schermen pakket ondersteunt 3 schermen tegelijk.`
-            }
-          },
-          {
-            "@type": "Question",
-            "name": `Wat is het verschil tussen de ${CONSTANTS.FOCUS_KEYWORD} pakketten?`,
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": `Alle ${CONSTANTS.FOCUS_KEYWORD} pakketten bevatten hetzelfde volledige aanbod van 20.000+ zenders en 60.000+ VODs in 4K & 60FPS. Het enige verschil is de geldigheidsduur (1, 3, 6 of 12 maanden) en het aantal gelijktijdige schermen.`
-            }
-          },
-          {
-            "@type": "Question",
-            "name": `Waar kan ik reviews over ${CONSTANTS.FOCUS_KEYWORD} vinden?`,
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": `U kunt echte reviews en ervaringen over ${CONSTANTS.FOCUS_KEYWORD} lezen op onze officiële reviewspagina (/ervaringen) en op onze sociale mediakanalen.`
-            }
-          },
-          {
-            "@type": "Question",
-            "name": `Is ${CONSTANTS.FOCUS_KEYWORD} de beste IPTV provider van 2026?`,
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": `${CONSTANTS.FOCUS_KEYWORD} wordt beoordeeld met 4.9/5 sterren door meer dan 5.000 actieve gebruikers in Nederland en België dankzij onze anti-freeze technologie, 60FPS sportstreams en 24/7 WhatsApp ondersteuning.`
+              "text": `Ja, OmniIPTV biedt een 7 dagen niet-goed-geld-terug-garantie op alle pakketten.`
             }
           }
         ]
@@ -679,25 +225,12 @@ const OrganizationSchema = () => (
         "@context": "https://schema.org",
         "@type": "Organization",
         "name": CONSTANTS.BRAND_NAME,
-        "alternateName": CONSTANTS.FOCUS_KEYWORD,
+        "alternateName": "OmniIPTV",
         "url": `https://${CONSTANTS.DOMAIN}`,
         "logo": `https://${CONSTANTS.DOMAIN}/img/structer.webp`,
         "image": `https://${CONSTANTS.DOMAIN}/img/structer.webp`,
-        "description": `Premium IPTV streamingprovider in Nederland en België met flexibele pakketten vanaf €14,99 voor 1 maand. ${CONSTANTS.FOCUS_KEYWORD} is de toonaangevende IPTV provider van 2026.`,
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "contactType": "customer support",
-          "availableLanguage": ["Dutch", "English"],
-          "contactOption": "TollFree",
-        },
-        "sameAs": [
-          "https://twitter.com/realmiptv",
-          "https://facebook.com/realmiptv",
-          "https://instagram.com/realmiptv",
-          "https://t.me/realmiptv",
-          "https://reddit.com/r/realmiptv",
-        ],
-      }),
+        "description": `OmniIPTV is de toonaangevende IPTV provider in Nederland en België met 20.000+ zenders en 60.000+ VODs in 4K kwaliteit zonder buffering.`
+      })
     }}
   />
 );
@@ -713,20 +246,15 @@ const WebsiteSchema = () => (
         "@context": "https://schema.org",
         "@type": "WebSite",
         "name": CONSTANTS.BRAND_NAME,
-        "alternateName": CONSTANTS.FOCUS_KEYWORD,
+        "alternateName": "OmniIPTV",
         "url": `https://${CONSTANTS.DOMAIN}`,
-        "description": `${CONSTANTS.FOCUS_KEYWORD} - Beste IPTV abonnementen vanaf €14,99. Bekijk onze ${CONSTANTS.FOCUS_KEYWORD} reviews en installatiehandleidingen.`,
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": `https://${CONSTANTS.DOMAIN}/search?q={search_term_string}`,
-          "query-input": "required name=search_term_string",
-        },
-      }),
+        "description": `Beste IPTV abonnement in Nederland en België met meer dan 20.000 zenders, anti-freeze servers en 24/7 ondersteuning.`
+      })
     }}
   />
 );
 
-// WebPage Schema for better image display
+// WebPage Schema
 const WebPageSchema = () => (
   <script
     type="application/ld+json"
@@ -736,8 +264,8 @@ const WebPageSchema = () => (
       __html: JSON.stringify({
         "@context": "https://schema.org",
         "@type": "WebPage",
-        "name": `${CONSTANTS.FOCUS_KEYWORD} - Tarieven & Pakketten | Officiële Website`,
-        "description": `Kies uw ${CONSTANTS.FOCUS_KEYWORD} abonnement vanaf €14,99. 20.000+ zenders, 60.000+ VODs, 4K kwaliteit. Officiële website.`,
+        "name": `OmniIPTV - Tarieven & Pakketten | Officiële Website`,
+        "description": `Kies uw OmniIPTV abonnement. 20.000+ zenders, 60.000+ VODs, 4K kwaliteit. Officiële website.`,
         "url": `https://${CONSTANTS.DOMAIN}/pakketten`,
         "primaryImageOfPage": {
           "@type": "ImageObject",
@@ -750,47 +278,12 @@ const WebPageSchema = () => (
   />
 );
 
-// Article Schema for search visibility
-const ArticleSchema = () => (
-  <script
-    type="application/ld+json"
-    id="article-schema"
-    suppressHydrationWarning
-    dangerouslySetInnerHTML={{
-      __html: JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "Article",
-        "headline": `${CONSTANTS.FOCUS_KEYWORD} - Beste IPTV Pakketten 2026 - 4K Streaming | Officiële Website`,
-        "image": [
-          `https://${CONSTANTS.DOMAIN}/img/structer.webp`
-        ],
-        "datePublished": "2026-01-01T00:00:00+00:00",
-        "dateModified": new Date().toISOString(),
-        "author": {
-          "@type": "Person",
-          "name": `${CONSTANTS.BRAND_NAME} Team`
-        },
-        "publisher": {
-          "@type": "Organization",
-          "name": CONSTANTS.BRAND_NAME,
-          "logo": {
-            "@type": "ImageObject",
-            "url": `https://${CONSTANTS.DOMAIN}/img/structer.webp`
-          }
-        }
-      })
-    }}
-  />
-);
-
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function PkgLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      {/* JSON-LD Schemas */}
       <OrganizationSchema />
       <WebsiteSchema />
       <WebPageSchema />
-      <ArticleSchema />
       <PricingPageSchema />
       <PricingFAQSchema />
       {children}

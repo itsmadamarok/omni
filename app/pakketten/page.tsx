@@ -124,7 +124,7 @@ export default function PricingPage() {
         <div className="absolute inset-0 z-0">
           <Image
             src="/img/bg-2.webp"
-            alt={`${CONSTANTS.FOCUS_KEYWORD} premium IPTV abonnementen - Beste ${CONSTANTS.FOCUS_KEYWORD} Deals`}
+            alt={`OmniIPTV premium IPTV abonnementen - Beste OmniIPTV Deals`}
             width={1920}
             height={1080}
             priority
@@ -163,14 +163,14 @@ export default function PricingPage() {
             
             <FadeInItem>
               <h1 className="text-5xl md:text-7xl font-black text-[#F1E8DB] tracking-tighter uppercase mb-6 leading-none text-center">
-                {CONSTANTS.FOCUS_KEYWORD} Pakketten & <br />
+                OmniIPTV Pakketten & <br />
                 <span className="text-[#CA1421]">Beste Deals</span>
               </h1>
             </FadeInItem>
 
             <FadeInItem>
               <p className="text-lg md:text-xl text-[#F1E8DB]/80 font-bold max-w-2xl mx-auto leading-relaxed px-2 text-center mb-6">
-                Geniet overal van live tv, films en sport met een snelle, betrouwbare {CONSTANTS.FOCUS_KEYWORD} streamingervaring in 4K & 60FPS.
+                Geniet overal van live tv, films en sport met een snelle, betrouwbare OmniIPTV streamingervaring in 4K & 60FPS.
               </p>
             </FadeInItem>
 
@@ -239,15 +239,15 @@ export default function PricingPage() {
             Alles Inbegrepen In <span className="text-[#CA1421]">Elk Pakket</span>
           </h2>
           <p className="text-[#F1E8DB]/70 text-lg font-bold max-w-2xl mx-auto mt-4">
-            Alle {CONSTANTS.FOCUS_KEYWORD} abonnementen worden standaard geleverd met deze premium functies en specificaties.
+            Alle OmniIPTV abonnementen worden standaard geleverd met deze premium functies en specificaties.
           </p>
         </FadeIn>
         
         <FadeInStagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
-            { icon: Tv, title: "20.000+ Live Zenders", desc: `Sport, nieuws, entertainment en nationale zenders uit meer dan 50 landen via ${CONSTANTS.FOCUS_KEYWORD}.` },
-            { icon: Film, title: "60.000+ VOD Bibliotheek", desc: `De nieuwste films, series en documentaires dagelijks automatisch bijgewerkt op ${CONSTANTS.FOCUS_KEYWORD}.` },
-            { icon: MonitorPlay, title: "4K & 60FPS Kwaliteit", desc: `Kristalheldere streaming op compatibele kanalen en apparaten zonder haperingen via ${CONSTANTS.FOCUS_KEYWORD}.` },
+            { icon: Tv, title: "20.000+ Live Zenders", desc: `Sport, nieuws, entertainment en nationale zenders uit meer dan 50 landen via OmniIPTV.` },
+            { icon: Film, title: "60.000+ VOD Bibliotheek", desc: `De nieuwste films, series en documentaires dagelijks automatisch bijgewerkt op OmniIPTV.` },
+            { icon: MonitorPlay, title: "4K & 60FPS Kwaliteit", desc: `Kristalheldere streaming op compatibele kanalen en apparaten zonder haperingen via OmniIPTV.` },
             { icon: Wifi, title: "Anti-Freeze Technologie", desc: `Buffervrij kijken dankzij geavanceerde streaming-optimalisatie en dedicated loadbalancers.` },
             { icon: Calendar, title: "Volledige EPG TV-Gids", desc: `7-daagse interactieve elektronische programmagids voor alle Nederlandse en Europese zenders.` },
             { icon: Trophy, title: "PPV Evenementen Inbegrepen", desc: `Alle grote UFC, Glory Kickboxing en boks Pay-Per-View gala's zonder extra kosten.` },
@@ -273,7 +273,7 @@ export default function PricingPage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-black text-[#F1E8DB] mb-4 uppercase tracking-tighter">
-              Vergelijk <span className="text-[#CA1421]">{CONSTANTS.FOCUS_KEYWORD} Pakketten</span>
+              Vergelijk <span className="text-[#CA1421]">OmniIPTV Pakketten</span>
             </h2>
             <p className="text-[#F1E8DB]/60 text-base font-bold uppercase tracking-widest mt-2">
               Vind het perfecte abonnement dat aansluit bij uw kijkwensen
@@ -319,7 +319,7 @@ export default function PricingPage() {
       <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-[#000000] w-full">
         <FadeIn className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-black text-[#F1E8DB] mb-4 uppercase tracking-tighter">
-            Waarom Kiezen Voor <span className="text-[#CA1421]">{CONSTANTS.FOCUS_KEYWORD}</span>
+            Waarom Kiezen Voor <span className="text-[#CA1421]">OmniIPTV</span>
           </h2>
           <p className="text-[#F1E8DB]/70 text-lg font-bold max-w-2xl mx-auto mt-4">
             Vertrouwd door meer dan 20.000 tevreden klanten in Nederland en België.
@@ -370,7 +370,7 @@ export default function PricingPage() {
           </div>
           <h3 className="text-2xl md:text-3xl font-black text-[#1A1A1D] uppercase tracking-tight mb-3">7 Dagen Kwaliteitsgarantie</h3>
           <p className="text-[#1A1A1D]/80 max-w-2xl mx-auto text-sm md:text-base font-bold leading-relaxed">
-            Probeer {CONSTANTS.BRAND_NAME} 7 dagen zonder risico. Ervaart u aanhoudende haperingen die wij niet kunnen verhelpen? Dan ontvangt u uw aankoopbedrag direct terug.
+            Probeer OmniIPTV 7 dagen zonder risico. Ervaart u aanhoudende haperingen die wij niet kunnen verhelpen? Dan ontvangt u uw aankoopbedrag direct terug.
           </p>
         </div>
       </section>
@@ -388,8 +388,8 @@ export default function PricingPage() {
         
         <FadeInStagger className="space-y-4 relative z-10">
           <FAQItem 
-            question={`Welke betaalmethoden accepteert ${CONSTANTS.BRAND_NAME}?`} 
-            answer={`${CONSTANTS.BRAND_NAME} accepteert iDEAL, Bancontact, alle grote creditcards (Visa, Mastercard, American Express), PayPal en cryptovaluta (Bitcoin, Ethereum, USDT). Alle betalingen worden veilig verwerkt via versleutelde 256-bit SSL-verbindingen.`}
+            question={`Welke betaalmethoden accepteert OmniIPTV?`} 
+            answer={`OmniIPTV accepteert iDEAL, Bancontact, alle grote creditcards (Visa, Mastercard, American Express), PayPal en cryptovaluta (Bitcoin, Ethereum, USDT). Alle betalingen worden veilig verwerkt via versleutelde 256-bit SSL-verbindingen.`}
           />
           <FAQItem 
             question={`Kan ik mijn abonnement later upgraden of aanpassen?`} 
