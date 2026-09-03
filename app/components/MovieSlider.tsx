@@ -27,7 +27,7 @@ const sports = Array.from({ length: 12 }).map((_, i) => {
   const number = String(i + 1).padStart(2, '0');
   return {
     id: `sport-${i}`,
-    imagePath: `/img/sliders/sliders/sports/omniptv-sports-${number}`,
+    imagePath: `/img/sliders/sports/omniptv-sports-${number}`,
   };
 });
 
