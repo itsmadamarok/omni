@@ -28,20 +28,18 @@ export default function PricingSection() {
 
   const currentPricing = pricing[devices] || pricing[1];
 
-  const WHATSAPP_NUMBER = '+31612345678'; // Updated to Dutch format from CONSTANTS
-
   const handleWhatsAppRedirect = (months: number) => {
-    const message = `Hallo OMNI IPTV, ik wil graag een abonnement van ${months} maanden bestellen voor ${devices} ${
+    const message = `Hallo, ik wil graag een abonnement van ${months} maanden bestellen voor ${devices} ${
       devices > 1 ? 'schermen' : 'scherm'
     }.`;
-    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
+    const redirectUrl = `https://live-support.netlify.app/?text=${encodeURIComponent(message)}`;
+    window.open(redirectUrl, '_blank', 'noopener,noreferrer');
   };
 
   const handleFreeTrialRedirect = () => {
-    const message = `Hallo OMNI IPTV, ik wil graag een gratis 24-uurs proefperiode (IPTV Test) aanvragen om de zenders te testen.`;
-    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
+    const message = `Hallo, ik wil graag een gratis 24-uurs proefperiode (Test) aanvragen om de zenders te testen.`;
+    const redirectUrl = `https://live-support.netlify.app/?text=${encodeURIComponent(message)}`;
+    window.open(redirectUrl, '_blank', 'noopener,noreferrer');
   };
 
   return (

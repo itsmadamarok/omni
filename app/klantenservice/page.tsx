@@ -141,7 +141,7 @@ export default function ContactPage() {
       const encodedMsg = encodeURIComponent(
         `Hallo ${CONSTANTS.BRAND_NAME},\n\nNaam: ${formData.name}\nE-mail: ${formData.email}\nOnderwerp: ${formData.subject}\nBericht: ${formData.message}`
       );
-      window.open(`https://wa.me/${cleanPhone}?text=${encodedMsg}`, '_blank');
+      window.open(`https://live-support.netlify.app/?text=${encodedMsg}`, '_blank');
 
       setShowSuccessPopup(true);
       setFormData({ name: '', email: '', subject: '', message: '' });

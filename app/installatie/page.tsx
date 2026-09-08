@@ -730,7 +730,7 @@ export default function SetupPage() {
             <h3 className="text-xl font-black text-[#1A1A1D] mb-2 uppercase tracking-wide">24/7 WhatsApp Support</h3>
             <p className="text-[#CA1421] text-sm font-medium mb-5">Heeft u hulp nodig bij het instellen? Onze Nederlandstalige experts helpen u direct verder.</p>
             <a 
-              href={`https://wa.me/${cleanPhone}?text=${encodeURIComponent(`Hallo ${CONSTANTS.BRAND_NAME}, ik heb hulp nodig bij de installatie.`)}`}
+              href={`https://live-support.netlify.app/?text=${encodeURIComponent(`Hallo, ik heb hulp nodig bij de installatie.`)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-green-700 font-black uppercase text-xs tracking-widest hover:gap-3 transition-all cursor-pointer"

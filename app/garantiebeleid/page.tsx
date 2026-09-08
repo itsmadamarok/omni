@@ -184,7 +184,7 @@ export default function RefundPolicyPage() {
                   </p>
                 </div>
                 <a
-                  href={`https://wa.me/${cleanPhone}?text=${encodeURIComponent('Hallo, ik ervaar een aanhoudend technisch probleem met mijn IPTV account en wil graag de diagnoseprocedure starten.')}`}
+                  href={`https://live-support.netlify.app/?text=${encodeURIComponent('Hallo, ik ervaar een aanhoudend technisch probleem met mijn, account en wil graag de diagnoseprocedure starten.')}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full text-center py-3 rounded-full bg-[#CA1421] text-[#F1E8DB] font-black text-xs uppercase tracking-wider hover:bg-[#DB4439] transition-all"

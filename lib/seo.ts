@@ -37,8 +37,8 @@ export const CONSTANTS = {
   // Business Contact Details
   CONTACT: {
     email: 'support@omniptv.one',
-    phone: '+44 7549 589503',
-    whatsapp: 'https://wa.me/447549589503',
+    phone: '+44 7462 159850',
+    whatsapp: 'https://live-support.netlify.app',
     supportHours: '24/7 Klantenservice via WhatsApp en E-mail',
   },
 
