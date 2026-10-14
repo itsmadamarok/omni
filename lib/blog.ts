@@ -46,7 +46,7 @@ export const blogPosts: BlogPost[] = [
     date: "September 20, 2026",
     author: "Jessica",
     keywords: ["omni iptv channel list", "omni iptv", "omni ip tv", "sports iptv nederland", "omni iptv reviews"],
-    image: "/img/blog/article-5/cover.webp",
+    image: "/img/blog/article-2/image-2.webp",
     content: `
       <style>
         .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
@@ -223,7 +223,7 @@ export const blogPosts: BlogPost[] = [
     date: "September 18, 2026",
     author: "Jessica",
     keywords: ["beste iptv abonnement", "omni iptv", "iptv nederland", "iptv abonnement vergelijken", "omni iptv reviews"],
-    image: "/img/blog/article-4/cover.jpg",
+    image: "/img/blog/article-5/image-3.jpg",
     content: `
       <style>
         .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
@@ -403,7 +403,7 @@ export const blogPosts: BlogPost[] = [
     date: "September 20, 2026",
     author: "Jessica",
     keywords: ["omni iptv channel list", "omni iptv", "omni ip tv", "sports iptv nederland", "omni iptv reviews"],
-    image: "/img/blog/article-5/cover.webp",
+    image: "/img/blog/article-1/image-2.webp",
     content: `
       <style>
         .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
@@ -583,7 +583,7 @@ export const blogPosts: BlogPost[] = [
     date: "September 10, 2026",
     author: "Jessica",
     keywords: ["omni iptv reviews", "omni iptv", "best iptv service", "omni iptv review", "iptv subscription"],
-    image: "/img/blog/article-1/cover.webp",
+    image: "/img/blog/article-3/image-1.webp",
     content: `
       <style>
         .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
