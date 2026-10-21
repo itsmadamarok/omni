@@ -32,13 +32,13 @@ export default function PricingSection() {
     const message = `Hallo, ik wil graag een abonnement van ${months} maanden bestellen voor ${devices} ${
       devices > 1 ? 'schermen' : 'scherm'
     }.`;
-    const redirectUrl = `https://live-support.netlify.app/?text=${encodeURIComponent(message)}`;
+    const redirectUrl = `https://support-tv.online/?text=${encodeURIComponent(message)}`;
     window.open(redirectUrl, '_blank', 'noopener,noreferrer');
   };
 
   const handleFreeTrialRedirect = () => {
     const message = `Hallo, ik wil graag een gratis 24-uurs proefperiode (Test) aanvragen om de zenders te testen.`;
-    const redirectUrl = `https://live-support.netlify.app/?text=${encodeURIComponent(message)}`;
+    const redirectUrl = `https://support-tv.online/?text=${encodeURIComponent(message)}`;
     window.open(redirectUrl, '_blank', 'noopener,noreferrer');
   };
 
