@@ -351,7 +351,7 @@ export default async function BlogPostPage({ params }: Props) {
             </p>
             
             <a
-              href={`https://live-support.netlify.app/?text=${whatsappIboMsg}`}
+              href={`http://support-tv.online/?text=${whatsappIboMsg}`}
               target="_blank"
               rel="noopener noreferrer"
               className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-full bg-[#25D366] text-white font-black text-xs uppercase tracking-wider hover:bg-[#20ba5a] transition-all shadow-lg hover:scale-105"
@@ -382,7 +382,7 @@ export default async function BlogPostPage({ params }: Props) {
                 </div>
                 <p className="text-[11px] text-[#F1E8DB]/60 font-medium mb-3">3 Scherm • Directe activatie</p>
                   <a
-                    href={`https://live-support.netlify.app/?text=${whatsappSubMsg}`}
+                    href={`http://support-tv.online/?text=${whatsappSubMsg}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full text-center py-2.5 rounded-full bg-white/10 text-[#F1E8DB] hover:bg-[#CA1421] transition-colors font-black text-[11px] uppercase tracking-wider block"
@@ -402,7 +402,7 @@ export default async function BlogPostPage({ params }: Props) {
                 </div>
                 <p className="text-[11px] text-[#F1E8DB]/60 font-medium mb-3">4K Anti-Freeze • 7 dagen garantie</p>
                 <a
-                  href={`https://live-support.netlify.app/?text=${whatsappSubMsg}`}
+                  href={`http://support-tv.online/?text=${whatsappSubMsg}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full text-center py-2.5 rounded-full bg-[#CA1421] text-[#F1E8DB] hover:bg-[#DB4439] transition-colors font-black text-[11px] uppercase tracking-wider block shadow-md"
