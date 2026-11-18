@@ -4,6 +4,41 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Metadata } from 'next';
 
+/* ---------------- Helpers ---------------- */
+
+const POSTS_PER_PAGE = 6;
+
+function ArrowRight({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M14 5l7 7m0 0l-7 7m7-7H3"
+      />
+    </svg>
+  );
+}
+
+/** Ensure URLs used in schema are absolute. */
+function absoluteUrl(pathOrUrl: string) {
+  if (/^https?:\/\//i.test(pathOrUrl)) return pathOrUrl;
+  return `https://${CONSTANTS.DOMAIN}${
+    pathOrUrl.startsWith('/') ? '' : '/'
+  }${pathOrUrl}`;
+}
+
+const sanitizedHandle = CONSTANTS.BRAND_NAME.replace(/\s+/g, '').toLowerCase();
+
+/* ---------------- Metadata ---------------- */
+
 export const metadata: Metadata = {
   metadataBase: new URL(`https://${CONSTANTS.DOMAIN}`),
   title: {
@@ -50,8 +85,8 @@ export const metadata: Metadata = {
     title: `${CONSTANTS.BRAND_NAME} Blog - IPTV Tips & Handleidingen`,
     description: `Nieuwste IPTV handleidingen, app instellingen en zendernieuws van ${CONSTANTS.BRAND_NAME}.`,
     images: [`https://${CONSTANTS.DOMAIN}/img/structer.webp`],
-    creator: `@${CONSTANTS.BRAND_NAME}`,
-    site: `@${CONSTANTS.BRAND_NAME}`,
+    creator: `@${sanitizedHandle}`,
+    site: `@${sanitizedHandle}`,
   },
   robots: {
     index: true,
@@ -66,7 +101,9 @@ export const metadata: Metadata = {
   },
 };
 
-const BlogListingSchema = () => (
+/* ---------------- JSON-LD ---------------- */
+
+const BlogListingSchema = ({ posts }: { posts: typeof blogPosts }) => (
   <script
     type="application/ld+json"
     id="blog-listing-schema"
@@ -86,10 +123,10 @@ const BlogListingSchema = () => (
             url: `https://${CONSTANTS.DOMAIN}/img/structer.webp`,
           },
         },
-        blogPost: blogPosts.map((post) => ({
+        blogPost: posts.map((post) => ({
           '@type': 'BlogPosting',
           headline: post.title,
-          description: post.description || post.excerpt,
+          description: post.description || post.excerpt || '',
           url: `https://${CONSTANTS.DOMAIN}/kennisbank/${post.slug}`,
           datePublished: post.date,
           dateModified: post.date,
@@ -98,7 +135,7 @@ const BlogListingSchema = () => (
             '@type': 'Person',
             name: post.author,
           },
-          image: post.image,
+          image: absoluteUrl(post.image),
         })),
       }),
     }}
@@ -157,32 +194,113 @@ const WebPageSchema = () => (
   />
 );
 
-export default function BlogListing() {
+/* ---------------- Pagination UI ---------------- */
+
+function Pagination({
+  currentPage,
+  totalPages,
+}: {
+  currentPage: number;
+  totalPages: number;
+}) {
+  if (totalPages <= 1) return null;
+
+  const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
+
+  return (
+    <nav
+      aria-label="Blog paginering"
+      className="max-w-7xl mx-auto w-full flex items-center justify-center gap-2 mt-16 relative z-10 flex-wrap"
+    >
+      {currentPage > 1 && (
+        <Link
+          href={`/kennisbank?page=${currentPage - 1}`}
+          rel="prev"
+          className="px-4 py-2 rounded-full border-2 border-[#CA1421] text-[#F1E8DB] font-black uppercase tracking-widest text-xs hover:bg-[#CA1421] transition-colors"
+        >
+          Vorige
+        </Link>
+      )}
+
+      {pages.map((page) => (
+        <Link
+          key={page}
+          href={`/kennisbank?page=${page}`}
+          aria-current={page === currentPage ? 'page' : undefined}
+          className={`w-10 h-10 flex items-center justify-center rounded-full font-black text-sm border-2 transition-colors ${
+            page === currentPage
+              ? 'bg-[#CA1421] border-[#CA1421] text-[#F1E8DB]'
+              : 'border-[#F1E8DB]/30 text-[#F1E8DB] hover:border-[#CA1421] hover:text-[#CA1421]'
+          }`}
+        >
+          {page}
+        </Link>
+      ))}
+
+      {currentPage < totalPages && (
+        <Link
+          href={`/kennisbank?page=${currentPage + 1}`}
+          rel="next"
+          className="px-4 py-2 rounded-full border-2 border-[#CA1421] text-[#F1E8DB] font-black uppercase tracking-widest text-xs hover:bg-[#CA1421] transition-colors"
+        >
+          Volgende
+        </Link>
+      )}
+    </nav>
+  );
+}
+
+/* ---------------- Page ---------------- */
+
+interface BlogListingProps {
+  // Next.js 15+: searchParams is a Promise and must be awaited
+  searchParams: Promise<{ page?: string }>;
+}
+
+export default async function BlogListing({ searchParams }: BlogListingProps) {
+  // ✅ Await searchParams before accessing its properties
+  const { page } = await searchParams;
+
+  const rawPage = Number.parseInt(page ?? '1', 10);
+  const currentPage = Number.isFinite(rawPage) && rawPage > 0 ? rawPage : 1;
+
+  const totalPages = Math.max(
+    1,
+    Math.ceil(blogPosts.length / POSTS_PER_PAGE)
+  );
+  const safePage = Math.min(currentPage, totalPages);
+
+  const start = (safePage - 1) * POSTS_PER_PAGE;
+  const pagePosts = blogPosts.slice(start, start + POSTS_PER_PAGE);
+
   return (
     <>
       <WebPageSchema />
-      <BlogListingSchema />
+      <BlogListingSchema posts={blogPosts} />
       <BreadcrumbSchema />
 
       <div className="flex flex-col min-h-screen bg-[#1A1A1D] px-4 sm:px-6 lg:px-8 py-24 text-[#F1E8DB]">
         {/* Header Hero */}
         <div className="max-w-7xl mx-auto text-center mb-16 relative">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-[#CA1421]/10 blur-[100px] rounded-full pointer-events-none" />
-          
+
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-[#F1E8DB] uppercase tracking-tighter mb-6 mt-16 relative z-10">
-            {CONSTANTS.BRAND_NAME} <span className="text-[#CA1421]">Kennisbank</span>
+            {CONSTANTS.BRAND_NAME}{' '}
+            <span className="text-[#CA1421]">Kennisbank</span>
           </h1>
           <p className="text-lg md:text-xl text-[#F1E8DB]/70 max-w-2xl mx-auto font-bold relative z-10 leading-relaxed">
-            Blijf op de hoogte van de nieuwste installatie-instructies, app-configuraties en tips om het maximale uit uw {CONSTANTS.BRAND_NAME} abonnement te halen.
+            Blijf op de hoogte van de nieuwste installatie-instructies,
+            app-configuraties en tips om het maximale uit uw{' '}
+            {CONSTANTS.BRAND_NAME} abonnement te halen.
           </p>
         </div>
 
         {/* Articles Grid */}
         <div className="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 relative z-10">
-          {blogPosts.map((post, index) => (
-            <Link 
-              href={`/kennisbank/${post.slug}`} 
-              key={post.id} 
+          {pagePosts.map((post, index) => (
+            <Link
+              href={`/kennisbank/${post.slug}`}
+              key={post.id ?? post.slug}
               className="group rounded-[2rem] overflow-hidden transition-all duration-500 flex flex-col relative transform hover:-translate-y-2 isolate bg-[#F1E8DB] border-4 border-[#CA1421] shadow-2xl"
             >
               <div className="relative aspect-[4/5] overflow-hidden bg-slate-800">
@@ -196,14 +314,14 @@ export default function BlogListing() {
                   sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
                   priority={index < 3}
                 />
-                
+
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90" />
-                
+
                 {/* Category Tags */}
                 <div className="absolute top-4 left-4 z-20 flex flex-wrap gap-2">
-                  {post.keywords && post.keywords.slice(0, 2).map((kw: string) => (
-                    <span 
-                      key={kw} 
+                  {post.keywords?.slice(0, 2).map((kw: string) => (
+                    <span
+                      key={kw}
                       className="px-3 py-1.5 bg-[#1A1A1D] text-[#F1E8DB] border border-white/10 text-[10px] font-black uppercase tracking-widest rounded-full shadow-sm"
                     >
                       {kw}
@@ -212,8 +330,8 @@ export default function BlogListing() {
                 </div>
               </div>
 
-              {/* Card Meta & Title */}
-              <div className="absolute inset-x-0 bottom-0 z-20 p-6 md:p-8 flex flex-col justify-end h-full">
+              {/* Card Meta & Title — absolute bottom overlay */}
+              <div className="absolute inset-x-0 bottom-0 z-20 p-6 md:p-8 flex flex-col justify-end">
                 <div className="flex items-center gap-3 text-xs font-black text-[#CA1421] mb-3 uppercase tracking-widest drop-shadow-md">
                   <div className="w-8 h-8 rounded-full bg-black/80 flex items-center justify-center border border-[#CA1421] text-[#F1E8DB] flex-shrink-0 font-black">
                     {post.author.charAt(0)}
@@ -221,18 +339,18 @@ export default function BlogListing() {
                   <span className="text-[#F1E8DB]">{post.author}</span>
                   <span className="text-[#F1E8DB]/50">•</span>
                   <span className="text-[#F1E8DB]/80 text-xs">
-                    {new Date(post.date).toLocaleDateString('nl-NL', { 
-                      month: 'short', 
-                      day: 'numeric', 
-                      year: 'numeric' 
+                    {new Date(post.date).toLocaleDateString('nl-NL', {
+                      month: 'short',
+                      day: 'numeric',
+                      year: 'numeric',
                     })}
                   </span>
                 </div>
-                
+
                 <h2 className="text-xl md:text-2xl lg:text-3xl font-black text-[#F1E8DB] mb-2 group-hover:text-[#CA1421] transition-colors duration-300 leading-tight drop-shadow-lg line-clamp-2 uppercase tracking-tight">
                   {post.title}
                 </h2>
-                
+
                 {/* Hover Reveal Snippet */}
                 <div className="h-0 group-hover:h-auto opacity-0 group-hover:opacity-100 overflow-hidden transition-all duration-500 ease-out">
                   <p className="text-[#F1E8DB]/90 text-sm font-bold leading-relaxed mt-2 line-clamp-3">
@@ -246,21 +364,10 @@ export default function BlogListing() {
             </Link>
           ))}
         </div>
+
+        {/* Pagination */}
+        <Pagination currentPage={safePage} totalPages={totalPages} />
       </div>
     </>
-  );
-}
-
-function ArrowRight({ className }: { className?: string }) {
-  return (
-    <svg 
-      className={className} 
-      fill="none" 
-      stroke="currentColor" 
-      viewBox="0 0 24 24"
-      aria-hidden="true"
-    >
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-    </svg>
   );
 }
