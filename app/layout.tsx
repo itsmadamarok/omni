@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     template: `%s | ${CONSTANTS.BRAND_NAME}`,
   },
   description:
-    'Koop OMNI IPTV in Nederland: 20.000+ live zenders en VOD in 4K zonder haperingen. Test nu 24 uur gratis via WhatsApp!',
+    'Koop OMNI IPTV in Nederland: 25.000+ live zenders en VOD in 4K zonder haperingen. Test nu 24 uur gratis via WhatsApp!',
   authors: [{ name: `${CONSTANTS.BRAND_NAME} Team` }],
   creator: CONSTANTS.BRAND_NAME,
   publisher: CONSTANTS.BRAND_NAME,
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'OMNI IPTV - Beste IPTV Provider Nederland | 4K 2026',
     description:
-      'Koop OMNI IPTV in Nederland: 20.000+ live zenders en VOD in 4K zonder haperingen. Test nu 24 uur gratis via WhatsApp!',
+      'Koop OMNI IPTV in Nederland: 25.000+ live zenders en VOD in 4K zonder haperingen. Test nu 24 uur gratis via WhatsApp!',
     url: `https://${CONSTANTS.DOMAIN}/`,
     siteName: CONSTANTS.BRAND_NAME,
     locale: 'nl_NL',
@@ -79,7 +79,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'OMNI IPTV - Beste IPTV Provider Nederland | 4K 2026',
     description:
-      'Koop OMNI IPTV in Nederland: 20.000+ live zenders en VOD in 4K zonder haperingen. Test nu 24 uur gratis via WhatsApp!',
+      'Koop OMNI IPTV in Nederland: 25.000+ live zenders en VOD in 4K zonder haperingen. Test nu 24 uur gratis via WhatsApp!',
     images: [`https://${CONSTANTS.DOMAIN}/img/structer.webp`],
     creator: `@${CONSTANTS.BRAND_NAME}`,
     site: `@${CONSTANTS.BRAND_NAME}`,
@@ -157,7 +157,6 @@ export const viewport: Viewport = {
   themeColor: '#1A1A1D',
 };
 
-// Localized Organization Schema
 const OrganizationSchema = () => (
   <script
     type="application/ld+json"
@@ -173,7 +172,7 @@ const OrganizationSchema = () => (
         logo: `https://${CONSTANTS.DOMAIN}/img/structer.webp`,
         image: `https://${CONSTANTS.DOMAIN}/img/structer.webp`,
         description:
-          'OMNI IPTV is de toonaangevende IPTV provider in Nederland en België met 20.000+ zenders en 60.000+ VOD films en series in 4K kwaliteit zonder buffering.',
+          'OMNI IPTV is de toonaangevende IPTV provider in Nederland en België met 25.000+ zenders en 60.000+ VOD films en series in 4K kwaliteit zonder buffering.',
         contactPoint: {
           '@type': 'ContactPoint',
           telephone: CONSTANTS.CONTACT.phone,
@@ -186,7 +185,6 @@ const OrganizationSchema = () => (
   />
 );
 
-// Localized Website Schema
 const WebsiteSchema = () => (
   <script
     type="application/ld+json"
@@ -200,7 +198,7 @@ const WebsiteSchema = () => (
         alternateName: `${CONSTANTS.BRAND_NAME} - Beste IPTV Provider Nederland`,
         url: `https://${CONSTANTS.DOMAIN}`,
         description:
-          'Beste IPTV abonnement in Nederland en België met meer dan 20.000 zenders, anti-freeze servers en 24/7 ondersteuning.',
+          'Beste IPTV abonnement in Nederland en België met meer dan 25.000 zenders, anti-freeze servers en 24/7 ondersteuning.',
         inLanguage: 'nl-NL',
         potentialAction: {
           '@type': 'SearchAction',
@@ -212,7 +210,6 @@ const WebsiteSchema = () => (
   />
 );
 
-// Clean Product Schema (No unverified aggregate rating to prevent manual spam flags)
 const ProductSchema = () => (
   <script
     type="application/ld+json"
@@ -253,7 +250,7 @@ const ProductSchema = () => (
             '@type': 'Offer',
             name: '1 Scherm - 12 Maanden',
             priceCurrency: 'EUR',
-            price: '49.00',
+            price: '59.00',
             priceValidUntil: '2027-12-31',
             availability: 'https://schema.org/OnlineOnly',
             url: `https://${CONSTANTS.DOMAIN}/`,
@@ -282,7 +279,6 @@ const ProductSchema = () => (
   />
 );
 
-// Localized FAQ Schema (Native Dutch search queries)
 const FAQSchema = () => (
   <script
     type="application/ld+json"
@@ -331,7 +327,6 @@ const FAQSchema = () => (
   />
 );
 
-// Localized WebPage Schema
 const WebPageSchema = () => (
   <script
     type="application/ld+json"
@@ -343,7 +338,7 @@ const WebPageSchema = () => (
         '@type': 'WebPage',
         name: 'OMNI IPTV - Beste IPTV Provider Nederland | 4K 2026',
         description:
-          'Koop OMNI IPTV in Nederland: 20.000+ live zenders en VOD in 4K zonder haperingen. Test nu 24 uur gratis via WhatsApp!',
+          'Koop OMNI IPTV in Nederland: 25.000+ live zenders en VOD in 4K zonder haperingen. Test nu 24 uur gratis via WhatsApp!',
         url: `https://${CONSTANTS.DOMAIN}/`,
         inLanguage: 'nl-NL',
         primaryImageOfPage: {
@@ -372,14 +367,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         className={`${poppins.className} ${montserrat.variable} antialiased min-h-screen bg-[#1A1A1D] text-[#F1E8DB]`}
         suppressHydrationWarning
       >
+        <Loading />
+
         {/* Schema.org Structured Data (Cleaned and Google Compliant) */}
         <OrganizationSchema />
         <WebsiteSchema />
         <ProductSchema />
         <FAQSchema />
         <WebPageSchema />
-        
-        <Loading />
+
         <Header />
         <main>{children}</main>
         <Footer />

@@ -124,7 +124,7 @@ export default function FloatingWhatsApp() {
       {!open && showBubble && (
         <div className="fixed bottom-28 right-6 z-[30] animate-fade-in whatsapp-element">
           <div className="bg-gradient-to-r from-green-500 to-green-600 shadow-lg rounded-2xl px-4 py-2.5 text-sm font-medium text-white relative max-w-[220px] whitespace-nowrap">
-            Hulp nodig? Chat direct met ons!
+          Chat direct met ons!
             <div className="absolute -bottom-2 right-6 w-4 h-4 bg-gradient-to-r from-green-500 to-green-600 rotate-45" />
           </div>
         </div>

@@ -107,7 +107,7 @@ const HowToSchema = () => (
           {
             "@type": "HowToStep",
             "name": "Voer de installatiecode in",
-            "text": "Open de Downloader app en voer installatiecode 83492 in om de IPTV speler te downloaden.",
+            "text": "Open de Downloader app en voer installatiecode 83592 in om de IPTV speler te downloaden.",
             "position": 4
           },
           {
@@ -119,7 +119,7 @@ const HowToSchema = () => (
           {
             "@type": "HowToStep",
             "name": "Start met streamen",
-            "text": "Geniet direct van 20.000+ live zenders en 60.000+ VOD films in haarscherpe 4K kwaliteit.",
+            "text": "Geniet direct van 25.000+ live zenders en 60.000+ VOD films in haarscherpe 4K kwaliteit.",
             "position": 6
           }
         ],
@@ -201,7 +201,7 @@ const SetupFAQSchema = () => (
             "name": "Wat is de Downloader installatiecode?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "De officiële installatiecode voor de Downloader app is 83492."
+              "text": "De officiële installatiecode voor de Downloader app is 83592."
             }
           }
         ]

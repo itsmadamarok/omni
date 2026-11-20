@@ -3,19 +3,20 @@ import { CONSTANTS, generateSEOMetadata } from '@/lib/seo';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
-import { 
-  ArrowLeft, 
-  Calendar, 
-  User, 
-  Tag, 
-  Clock, 
-  ArrowRight, 
-  Sparkles, 
-  Zap, 
-  ShieldCheck, 
+import {
+  ArrowLeft,
+  Calendar,
+  User,
+  Tag,
+  Clock,
+  ArrowRight,
+  Sparkles,
+  Zap,
+  ShieldCheck,
   Headphones,
   MessageCircle,
-  Flame
+  Flame,
+  BookOpen,
 } from 'lucide-react';
 import ShareButtons from '../../components/ShareButtons';
 
@@ -31,12 +32,15 @@ export async function generateMetadata({ params }: Props) {
   const resolvedParams = await params;
   const post = blogPosts.find((p) => p.slug === resolvedParams.slug);
   if (!post) return generateSEOMetadata('Artikel Niet Gevonden');
-  
+
   const shortTitle = post.title.length > 55 ? post.title.substring(0, 52) + '...' : post.title;
-  
+
   return {
     title: `${shortTitle} | ${CONSTANTS.BRAND_NAME} Kennisbank`,
-    description: post.description || post.excerpt || `Lees de volledige ${CONSTANTS.BRAND_NAME} handleiding en tips.`,
+    description:
+      post.description ||
+      post.excerpt ||
+      `Lees de volledige ${CONSTANTS.BRAND_NAME} handleiding en tips.`,
     keywords: post.keywords ? post.keywords.join(', ') : CONSTANTS.PRIMARY_KEYWORDS.join(', '),
     alternates: {
       canonical: `https://${CONSTANTS.DOMAIN}/kennisbank/${post.slug}`,
@@ -47,7 +51,10 @@ export async function generateMetadata({ params }: Props) {
     },
     openGraph: {
       title: `${shortTitle} | ${CONSTANTS.BRAND_NAME} Blog`,
-      description: post.description || post.excerpt || `Lees de volledige ${CONSTANTS.BRAND_NAME} handleiding.`,
+      description:
+        post.description ||
+        post.excerpt ||
+        `Lees de volledige ${CONSTANTS.BRAND_NAME} handleiding.`,
       url: `https://${CONSTANTS.DOMAIN}/kennisbank/${post.slug}`,
       type: 'article',
       locale: 'nl_NL',
@@ -65,7 +72,10 @@ export async function generateMetadata({ params }: Props) {
     twitter: {
       card: 'summary_large_image',
       title: `${shortTitle} | ${CONSTANTS.BRAND_NAME}`,
-      description: post.description || post.excerpt || `Lees de volledige ${CONSTANTS.BRAND_NAME} handleiding.`,
+      description:
+        post.description ||
+        post.excerpt ||
+        `Lees de volledige ${CONSTANTS.BRAND_NAME} handleiding.`,
       images: [post.image || `https://${CONSTANTS.DOMAIN}/img/structer.webp`],
     },
   };
@@ -74,18 +84,17 @@ export async function generateMetadata({ params }: Props) {
 export default async function BlogPostPage({ params }: Props) {
   const resolvedParams = await params;
   const post = blogPosts.find((p) => p.slug === resolvedParams.slug);
-  
+
   if (!post) {
     notFound();
   }
 
-  // Reading time calculation
   const wordCount = post.content.replace(/<[^>]*>/g, '').split(/\s+/).length;
   const readTime = Math.max(3, Math.ceil(wordCount / 200));
 
-  const displayCategory = post.keywords && post.keywords.length > 0 ? post.keywords[0] : 'IPTV Handleiding';
-  
-  // Related articles for the sidebar (excluding current post)
+  const displayCategory =
+    post.keywords && post.keywords.length > 0 ? post.keywords[0] : 'IPTV Handleiding';
+
   const relatedPosts = blogPosts.filter((p) => p.slug !== post.slug).slice(0, 3);
 
   const jsonLd = {
@@ -141,12 +150,11 @@ export default async function BlogPostPage({ params }: Props) {
     ],
   };
 
-  const whatsappIboMsg = encodeURIComponent("Hey i want to get subscription to iboplayer");
-  const whatsappSubMsg = encodeURIComponent("Hey i want to get iptv subscription");
+  const whatsappIboMsg = encodeURIComponent('Hey i want to get subscription to iboplayer');
+  const whatsappSubMsg = encodeURIComponent('Hey i want to get iptv subscription');
 
   return (
-    <article className="flex flex-col min-h-screen bg-[#1A1A1D] text-[#F1E8DB]">
-      
+    <article className="flex flex-col min-h-screen bg-[#1B1B1F] text-white selection:bg-[#FFD700] selection:text-[#1B1B1F]">
       {/* JSON-LD Schemas */}
       <script
         type="application/ld+json"
@@ -159,56 +167,390 @@ export default async function BlogPostPage({ params }: Props) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
 
-      {/* Hero Header Section */}
-      <section className="relative min-h-fit md:min-h-[55vh] lg:min-h-[60vh] flex items-center justify-center overflow-hidden">
-        
-        <div className="absolute inset-0 z-0">
-          <Image
-            src={post.image}
-            alt={`${post.title} - ${CONSTANTS.BRAND_NAME} Kennisbank Artikel`}
-            width={1920}
-            height={1080}
-            priority
-            fetchPriority="high"
-            className="w-full h-full object-cover scale-105 brightness-[0.2]"
-            sizes="100vw"
-          />
-          <div className="absolute inset-0 bg-[#1A1A1D]/60" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1D] via-transparent to-[#1A1A1D]" />
-        </div>
-        
-        <div 
-          className="absolute inset-0 z-0 opacity-5"
-          style={{ 
-            backgroundImage: `
-              linear-gradient(to right, #CA1421 1px, transparent 1px),
-              linear-gradient(to bottom, #CA1421 1px, transparent 1px)
-            `,
-            backgroundSize: '50px 50px',
+      {/* Styled Article Blocks, Unique Headings, Lists & Markdown Elements */}
+      <style>{`
+        .omni-article-content h1,
+        .omni-article-content h2,
+        .omni-article-content h3,
+        .omni-article-content h4 {
+          color: #0B132B !important;
+          font-weight: 900;
+          text-transform: uppercase;
+          letter-spacing: -0.015em;
+        }
+
+        .omni-article-content h2 {
+          position: relative;
+          margin-top: 2.5rem !important;
+          margin-bottom: 1.15rem !important;
+          padding: 0.35rem 0 0.65rem 1rem !important;
+          border-left: 4px solid #E3182B;
+          border-bottom: 1px solid rgba(11, 19, 43, 0.14);
+          font-size: 1.35rem !important;
+          line-height: 1.25 !important;
+        }
+
+        .omni-article-content h2::after {
+          content: '';
+          position: absolute;
+          left: 0;
+          bottom: -1px;
+          width: 4.5rem;
+          height: 3px;
+          border-radius: 999px;
+          background: #FFD700;
+        }
+
+        .omni-article-content h3 {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.45rem;
+          margin-top: 1.75rem !important;
+          margin-bottom: 0.75rem !important;
+          padding-bottom: 0.25rem;
+          border-bottom: 3px solid #FFD700;
+          font-size: 1.05rem !important;
+          line-height: 1.35 !important;
+        }
+
+        .omni-article-content h4 {
+          margin-top: 1.25rem !important;
+          margin-bottom: 0.5rem !important;
+          padding-left: 0.65rem;
+          border-left: 3px solid #0B132B;
+          font-size: 0.92rem !important;
+        }
+
+        .omni-article-content p {
+          color: #1E293B !important;
+          font-weight: 600;
+          line-height: 1.72;
+          margin-bottom: 1.25rem !important;
+        }
+
+        .omni-article-content strong,
+        .omni-article-content b {
+          color: #0B132B !important;
+          font-weight: 900;
+        }
+
+        .omni-article-content ul,
+        .omni-article-content ol {
+          margin: 1.4rem 0 1.75rem 0 !important;
+          padding: 1.15rem 1.25rem 1.15rem 2.35rem !important;
+          background: #F7F7F7;
+          border: 1px solid rgba(11, 19, 43, 0.12);
+          border-left: 4px solid #0B132B;
+          border-radius: 1rem;
+          color: #1E293B !important;
+          font-weight: 600;
+        }
+
+        .omni-article-content ul {
+          list-style-type: none !important;
+          padding-left: 1.25rem !important;
+        }
+
+        .omni-article-content ul > li {
+          position: relative;
+          padding-left: 1.35rem;
+          margin-bottom: 0.65rem;
+          color: #1E293B !important;
+          line-height: 1.62;
+        }
+
+        .omni-article-content ul > li::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 0.52em;
+          width: 0.5rem;
+          height: 0.5rem;
+          border-radius: 999px;
+          background: #E3182B;
+          box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.55);
+        }
+
+        .omni-article-content ul > li:last-child,
+        .omni-article-content ol > li:last-child {
+          margin-bottom: 0;
+        }
+
+        .omni-article-content ol {
+          list-style-type: decimal !important;
+          counter-reset: omni-step;
+        }
+
+        .omni-article-content ol > li {
+          margin-bottom: 0.7rem;
+          padding-left: 0.35rem;
+          color: #1E293B !important;
+          line-height: 1.62;
+        }
+
+        .omni-article-content ol > li::marker {
+          color: #0B132B;
+          font-weight: 900;
+        }
+
+        .omni-article-content blockquote {
+          margin: 1.75rem 0 !important;
+          padding: 1.15rem 1.4rem !important;
+          background: #F7F7F7 !important;
+          border: 1px solid rgba(11, 19, 43, 0.14) !important;
+          border-left: 4px solid #E3182B !important;
+          border-radius: 0 1rem 1rem 0 !important;
+          color: #0B132B !important;
+          font-style: normal !important;
+          font-weight: 700 !important;
+        }
+
+        .omni-article-content code {
+          background: #F7F7F7 !important;
+          color: #0B132B !important;
+          border: 1px solid rgba(11, 19, 43, 0.18);
+          border-bottom: 2px solid #FFD700;
+          padding: 0.15rem 0.45rem;
+          border-radius: 0.4rem;
+          font-weight: 700;
+        }
+
+        .omni-article-content pre {
+          margin: 1.75rem 0 !important;
+          padding: 1.25rem !important;
+          background: #0B132B !important;
+          color: #FFFFFF !important;
+          border-radius: 1rem !important;
+          border-left: 4px solid #FFD700 !important;
+          overflow-x: auto;
+        }
+
+        .omni-article-content pre code {
+          background: transparent !important;
+          color: #FFFFFF !important;
+          border: none !important;
+          padding: 0 !important;
+        }
+
+        .omni-article-content hr {
+          border: 0 !important;
+          height: 2px !important;
+          background: linear-gradient(90deg, #E3182B 0%, #FFD700 45%, rgba(11, 19, 43, 0.12) 100%) !important;
+          margin: 2.25rem 0 !important;
+          border-radius: 999px;
+        }
+
+        .omni-article-content .feature-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+          gap: 1.25rem;
+          margin: 2rem 0;
+        }
+
+        .omni-article-content .feature-card {
+          position: relative;
+          background: #F7F7F7;
+          border-radius: 1.25rem;
+          padding: 1.5rem;
+          border: 2px solid rgba(11, 19, 43, 0.14);
+          box-shadow: 0 6px 18px rgba(11, 19, 43, 0.05);
+          transition: transform 0.25s ease, border-color 0.25s ease;
+          color: #0B132B;
+        }
+
+        .omni-article-content .feature-card::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 1.5rem;
+          right: 1.5rem;
+          height: 3px;
+          border-radius: 999px;
+          background: linear-gradient(90deg, #E3182B, #FFD700);
+          opacity: 0.9;
+          transition: opacity 0.25s ease;
+        }
+
+        .omni-article-content .feature-card:hover {
+          transform: translateY(-2px);
+          border-color: #E3182B;
+        }
+
+        .omni-article-content .feature-card h3 {
+          color: #0B132B !important;
+          font-weight: 900;
+          text-transform: uppercase;
+          letter-spacing: 0.04em;
+          margin-top: 0.25rem !important;
+          margin-bottom: 0.5rem !important;
+          font-size: 1.05rem !important;
+        }
+
+        .omni-article-content .feature-card p {
+          color: #1E293B !important;
+          font-weight: 600;
+          line-height: 1.65;
+          font-size: 0.92rem !important;
+          margin: 0 !important;
+        }
+
+        .omni-article-content .comparison-table {
+          overflow-x: auto;
+          margin: 2rem 0;
+          border-radius: 1.25rem;
+          border: 2px solid rgba(11, 19, 43, 0.15);
+          background: #FFFFFF;
+          box-shadow: 0 8px 24px rgba(11, 19, 43, 0.05);
+        }
+
+        .omni-article-content .comparison-table table {
+          width: 100%;
+          min-width: 560px;
+          border-collapse: collapse;
+          background: #FFFFFF;
+          margin: 0;
+        }
+
+        .omni-article-content .comparison-table th,
+        .omni-article-content .comparison-table td {
+          padding: 1rem 1.15rem;
+          text-align: left;
+          border-bottom: 1px solid rgba(11, 19, 43, 0.12);
+          color: #1E293B;
+          font-weight: 600;
+          font-size: 0.92rem;
+        }
+
+        .omni-article-content .comparison-table th {
+          background: #0B132B;
+          color: #FFD700;
+          font-weight: 900;
+          font-size: 0.78rem;
+          letter-spacing: 0.09em;
+          text-transform: uppercase;
+          border-bottom: 2px solid #E3182B;
+        }
+
+        .omni-article-content .comparison-table tbody tr:nth-child(even) {
+          background: #F7F7F7;
+        }
+
+        .omni-article-content .comparison-table tbody tr:hover {
+          background: rgba(244, 167, 167, 0.18);
+        }
+
+        .omni-article-content .comparison-table tbody tr:last-child td {
+          border-bottom: none;
+        }
+
+        .omni-article-content .article-image {
+          border-radius: 1.25rem;
+          margin: 1.75rem 0;
+          width: 100%;
+          height: auto;
+          border: 2px solid rgba(11, 19, 43, 0.15);
+          box-shadow: 0 10px 24px rgba(11, 19, 43, 0.08);
+          display: block;
+        }
+
+        .omni-article-content .internal-link {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.35rem;
+          color: #E3182B !important;
+          font-weight: 800;
+          text-transform: uppercase;
+          font-size: 0.85em;
+          letter-spacing: 0.05em;
+          text-decoration: underline;
+          text-underline-offset: 4px;
+          transition: color 0.2s ease, transform 0.2s ease;
+        }
+
+        .omni-article-content .internal-link:hover {
+          color: #0B132B !important;
+        }
+
+        .omni-article-content .highlight {
+          color: #E3182B !important;
+          font-weight: 800;
+        }
+
+        .omni-article-content .info-box {
+          background: #F7F7F7;
+          border: 2px solid rgba(11, 19, 43, 0.14);
+          border-left: 4px solid #E3182B;
+          padding: 1.25rem 1.4rem;
+          border-radius: 1rem;
+          margin: 1.75rem 0;
+          color: #0B132B;
+          font-weight: 600;
+          line-height: 1.65;
+        }
+      `}</style>
+
+      {/* Hero Section */}
+      <section className="relative pt-32 sm:pt-36 lg:pt-44 pb-14 sm:pb-16 overflow-hidden border-b border-white/10">
+        {/* Subtle Grid Overlay */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 z-0 opacity-[0.04] pointer-events-none"
+          style={{
+            backgroundImage:
+              'linear-gradient(to right, #FFFFFF 1px, transparent 1px), linear-gradient(to bottom, #FFFFFF 1px, transparent 1px)',
+            backgroundSize: '48px 48px',
           }}
         />
-        
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] md:w-[600px] md:h-[600px] bg-[#CA1421]/10 blur-[120px] md:blur-[150px] rounded-full pointer-events-none z-0" />
-        
-        <div className="max-w-4xl mx-auto w-full px-4 sm:px-6 lg:px-8 text-center relative z-10 pt-32 sm:pt-36 md:pt-40 lg:pt-48 pb-12 md:pb-16 flex flex-col items-center justify-center">
-          
-          <div className="inline-block mb-4 md:mb-6">
-            <span className="px-4 py-2 bg-[#CA1421] text-[#F1E8DB] text-xs font-black uppercase tracking-widest rounded-full shadow-md">
+
+        {/* Ambient Accents */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 h-[420px] w-[820px] rounded-full bg-[#E3182B]/15 blur-[145px]"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute top-28 right-10 h-64 w-64 rounded-full bg-[#FFD700]/8 blur-[120px]"
+        />
+
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+          {/* Breadcrumb Trail */}
+          <nav
+            aria-label="Breadcrumb"
+            className="flex items-center justify-center gap-2 text-xs font-extrabold uppercase tracking-widest text-white/60 mb-6"
+          >
+            <Link href="/" className="hover:text-[#FFD700] transition-colors">
+              Home
+            </Link>
+            <span className="text-white/25">/</span>
+            <Link href="/kennisbank" className="hover:text-[#FFD700] transition-colors">
+              Kennisbank
+            </Link>
+            <span className="text-white/25">/</span>
+            <span className="text-[#FFD700] truncate max-w-[180px] sm:max-w-xs">
               {displayCategory}
             </span>
+          </nav>
+
+          {/* Category Pill */}
+          <div className="inline-flex items-center gap-2 rounded-full bg-[#232329] border border-[#FFD700]/35 px-4 py-1.5 text-[11px] font-black uppercase tracking-[0.18em] text-[#FFD700] shadow-md mb-5">
+            <BookOpen className="w-3.5 h-3.5 text-[#E3182B]" />
+            <span>{displayCategory}</span>
           </div>
-          
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black text-[#F1E8DB] tracking-tighter uppercase mb-4 md:mb-6 leading-none">
+
+          {/* Main Title */}
+          <h1 className="text-2xl sm:text-4xl lg:text-5xl xl:text-[3.4rem] font-black text-white uppercase tracking-tight leading-[1.07] max-w-4xl mx-auto">
             {post.title}
           </h1>
-          
-          <p className="text-base sm:text-lg md:text-xl text-[#F1E8DB]/80 font-bold max-w-2xl mx-auto leading-relaxed mb-6">
+
+          {/* Subtitle */}
+          <p className="mt-5 text-sm sm:text-base md:text-lg text-white/75 font-medium max-w-2xl mx-auto leading-relaxed">
             {post.description || post.excerpt}
           </p>
-          
-          <div className="flex flex-wrap justify-center gap-4 md:gap-6 text-[#F1E8DB]/60 text-xs md:text-sm font-black uppercase tracking-widest">
-            <div className="flex items-center gap-2">
-              <Calendar className="w-4 h-4 text-[#CA1421]" />
+
+          {/* Metadata Pills */}
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3 text-xs font-bold uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 rounded-full bg-[#232329] border border-white/10 px-4 py-2 text-white/85 shadow-sm">
+              <Calendar className="w-3.5 h-3.5 text-[#FFD700]" />
               <span>
                 {new Date(post.date).toLocaleDateString('nl-NL', {
                   month: 'long',
@@ -217,257 +559,309 @@ export default async function BlogPostPage({ params }: Props) {
                 })}
               </span>
             </div>
-            <div className="flex items-center gap-2">
-              <User className="w-4 h-4 text-[#CA1421]" />
+
+            <div className="inline-flex items-center gap-2 rounded-full bg-[#232329] border border-white/10 px-4 py-2 text-white/85 shadow-sm">
+              <User className="w-3.5 h-3.5 text-[#FFD700]" />
               <span>{post.author}</span>
             </div>
-            <div className="flex items-center gap-2">
-              <Clock className="w-4 h-4 text-[#CA1421]" />
+
+            <div className="inline-flex items-center gap-2 rounded-full bg-[#232329] border border-[#10B981]/35 px-4 py-2 text-[#10B981] shadow-sm">
+              <Clock className="w-3.5 h-3.5" />
               <span>{readTime} min leestijd</span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Return Navigation Pathway */}
-      <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 mt-8 md:mt-10">
-        <Link 
-          href="/kennisbank" 
-          className="inline-flex items-center gap-2 text-[#CA1421] hover:text-[#F1E8DB] transition-colors font-black text-xs uppercase tracking-widest group"
-        >
-          <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" /> 
-          Terug naar alle artikelen
-        </Link>
-      </div>
+      {/* Main Content + Sidebar Grid (Light Mode #F7F7F7 for Main Article Section) */}
+      <div className="relative bg-[#F7F7F7] text-[#0B132B] overflow-x-clip">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute top-12 left-1/2 -translate-x-1/2 h-[320px] w-[720px] rounded-full bg-[#F4A7A7]/35 blur-[145px]"
+        />
 
-      {/* Main Layout Grid with Dynamic Sticky Sidebar & Content */}
-      <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8 md:py-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        
-        {/* Main Article Body (8 Cols) */}
-        <div className="lg:col-span-8 order-1 lg:order-1">
-          
-          {/* Cover Image displayed right above content as requested */}
-          {post.image && (
-            <div className="relative w-full aspect-video rounded-3xl overflow-hidden border-4 border-[#CA1421] mb-8 shadow-2xl">
-              <Image 
-                src={post.image} 
-                alt={post.title} 
-                fill 
-                priority 
-                className="object-cover" 
-                sizes="(max-width: 1024px) 100vw, 800px" 
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-            </div>
-          )}
-
-          <div 
-            className="prose prose-invert prose-base md:prose-lg max-w-none
-              [&>h1]:text-2xl [&>h1]:md:text-3xl [&>h1]:lg:text-4xl [&>h1]:font-black [&>h1]:text-[#F1E8DB] [&>h1]:mb-4 [&>h1]:md:mb-6 [&>h1]:tracking-tight [&>h1]:uppercase
-              [&>h2]:text-xl [&>h2]:md:text-2xl [&>h2]:lg:text-3xl [&>h2]:font-black [&>h2]:text-[#F1E8DB] [&>h2]:mb-4 [&>h2]:md:mb-5 [&>h2]:mt-8 [&>h2]:md:mt-12 [&>h2]:tracking-tight [&>h2]:uppercase
-              [&>h3]:text-lg [&>h3]:md:text-xl [&>h3]:lg:text-2xl [&>h3]:font-black [&>h3]:text-[#F1E8DB] [&>h3]:mb-3 [&>h3]:md:mb-4 [&>h3]:mt-6 [&>h3]:md:mt-8 [&>h3]:uppercase
-              [&>h4]:text-base [&>h4]:md:text-lg [&>h4]:lg:text-xl [&>h4]:font-black [&>h4]:text-[#CA1421] [&>h4]:mb-2 [&>h4]:md:mb-3 [&>h4]:mt-4 [&>h4]:md:mt-6 [&>h4]:uppercase
-              [&>p]:text-[#F1E8DB]/80 [&>p]:text-sm [&>p]:md:text-base [&>p]:lg:text-lg [&>p]:font-medium [&>p]:leading-relaxed [&>p]:mb-4 [&>p]:md:mb-6
-              [&>ul]:list-disc [&>ul]:pl-5 [&>ul]:md:pl-6 [&>ul]:mb-4 [&>ul]:md:mb-6 [&>ul]:text-[#F1E8DB]/80 [&>ul]:font-medium
-              [&>ol]:list-decimal [&>ol]:pl-5 [&>ol]:md:pl-6 [&>ol]:mb-4 [&>ol]:md:mb-6 [&>ol]:text-[#F1E8DB]/80 [&>ol]:font-medium
-              [&>li]:mb-1.5 [&>li]:md:mb-2 [&>li]:text-[#F1E8DB]/80
-              [&>a]:text-[#CA1421] [&>a]:font-black [&>a]:hover:text-[#F1E8DB] [&>a]:transition-colors
-              [&>blockquote]:border-l-4 [&>blockquote]:border-[#CA1421] [&>blockquote]:bg-[#F1E8DB]/5 [&>blockquote]:pl-4 [&>blockquote]:md:pl-6 [&>blockquote]:py-2 [&>blockquote]:my-4 [&>blockquote]:md:my-6 [&>blockquote]:text-[#F1E8DB]/70 [&>blockquote]:italic
-              [&>code]:bg-[#F1E8DB]/10 [&>code]:px-2 [&>code]:py-1 [&>code]:rounded-lg [&>code]:text-[#CA1421] [&>code]:text-xs [&>code]:md:text-sm
-              [&>pre]:bg-[#1A1A1D] [&>pre]:p-4 [&>pre]:md:p-6 [&>pre]:rounded-2xl [&>pre]:overflow-x-auto [&>pre]:border-2 [&>pre]:border-[#CA1421]/20
-              [&>img]:rounded-2xl [&>img]:my-6 [&>img]:md:my-8 [&>img]:border-2 [&>img]:border-[#CA1421]/20 [&>img]:w-full [&>img]:h-auto
-              [&>hr]:border-[#CA1421]/20 [&>hr]:my-8 [&>hr]:md:my-12
-            "
-            dangerouslySetInnerHTML={{ __html: post.content }}
-          />
-
-          {/* Social Share Component */}
-          <div className="my-8">
-            <ShareButtons 
-              title={`${post.title} - ${CONSTANTS.BRAND_NAME}`} 
-              url={`https://${CONSTANTS.DOMAIN}/kennisbank/${post.slug}`} 
-            />
-          </div>
-
-          {/* Topic Keywords Tag Cloud */}
-          {post.keywords && post.keywords.length > 0 && (
-            <div className="mt-8 md:mt-12 pt-6 md:pt-8 border-t border-white/10">
-              <div className="flex items-center gap-2 mb-4">
-                <Tag className="w-5 h-5 text-[#CA1421]" />
-                <h4 className="text-[#F1E8DB] font-black text-base md:text-lg uppercase tracking-wide">
-                  Onderwerpen
-                </h4>
-              </div>
-              <div className="flex flex-wrap gap-2 md:gap-3">
-                {post.keywords.slice(0, 8).map((keyword) => (
-                  <span 
-                    key={keyword} 
-                    className="px-4 py-2 bg-[#F1E8DB] text-[#1A1A1D] text-xs md:text-sm font-black uppercase tracking-wider rounded-full border-4 border-[#CA1421] shadow-md hover:bg-[#CA1421] hover:text-[#F1E8DB] transition-all cursor-default"
-                  >
-                    {keyword}
-                  </span>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* Author Bio Card */}
-          <div className="mt-8 md:mt-12 p-6 md:p-8 rounded-3xl border-4 border-[#CA1421] bg-[#F1E8DB]">
-            <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 md:gap-6 text-center sm:text-left">
-              <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-br from-[#CA1421] to-[#DB4439] flex items-center justify-center text-[#F1E8DB] font-black text-2xl md:text-3xl uppercase flex-shrink-0 shadow-lg">
-                {post.author[0]}
-              </div>
-              <div>
-                <h4 className="text-[#1A1A1D] font-black text-xl md:text-2xl mb-1 uppercase tracking-tight">
-                  {post.author}
-                </h4>
-                <p className="text-[#CA1421] text-xs md:text-sm uppercase tracking-widest font-black mb-2 md:mb-3">
-                  IPTV Specialist bij {CONSTANTS.BRAND_NAME}
-                </p>
-                <p className="text-[#1A1A1D]/80 text-sm md:text-base font-bold leading-relaxed">
-                  Gespecialiseerd in streamingprotocollen, app-configuraties en netwerkoptimalisaties. Helpt gebruikers dagelijks om het beste uit hun 4K IPTV abonnement en Smart TV installaties te halen.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Dynamic Sticky Sidebar (4 Cols) */}
-        <aside className="lg:col-span-4 order-2 lg:order-2 lg:sticky lg:top-28 space-y-8">
-          
-          {/* Card 1: IBO Player WhatsApp Redirect */}
-          <div className="bg-[#F1E8DB] border-4 border-[#CA1421] rounded-3xl p-6 shadow-xl relative overflow-hidden">
-            <div className="absolute -top-10 -right-10 w-32 h-32 bg-[#CA1421]/10 rounded-full blur-2xl pointer-events-none" />
-            
-            <div className="inline-flex items-center gap-1.5 bg-[#CA1421] text-[#F1E8DB] px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest mb-3">
-              <Flame className="w-3.5 h-3.5" /> Aanbevolen Speler
-            </div>
-            
-            <h3 className="text-xl font-black text-[#1A1A1D] uppercase tracking-tight mb-2">
-              Bestel IBO Player Toegang
-            </h3>
-            <p className="text-[#1A1A1D]/80 text-xs sm:text-sm font-bold leading-relaxed mb-6">
-              Krijg direct volledige ondersteuning voor IBO Player gedurende uw gehele abonnementsperiode met onze 24/7 WhatsApp begeleiding.
-            </p>
-            
-            <a
-              href={`http://support-tv.online/?text=${whatsappIboMsg}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-full bg-[#25D366] text-white font-black text-xs uppercase tracking-wider hover:bg-[#20ba5a] transition-all shadow-lg hover:scale-105"
+        <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-10 sm:py-14 relative z-10">
+          {/* Back Button */}
+          <div className="mb-8">
+            <Link
+              href="/kennisbank"
+              className="inline-flex items-center gap-2 rounded-full bg-white border-2 border-[#0B132B]/15 px-4 py-2 text-xs font-black uppercase tracking-widest text-[#0B132B] hover:border-[#E3182B] hover:text-[#E3182B] transition-all shadow-sm group"
             >
-              <MessageCircle className="w-5 h-5 fill-current" />
-              <span>Bestel IBO Player via WhatsApp</span>
-            </a>
+              <ArrowLeft className="w-4 h-4 text-[#E3182B] group-hover:-translate-x-0.5 transition-transform" />
+              <span>Terug naar alle artikelen</span>
+            </Link>
           </div>
 
-          {/* Card 2: IPTV Subscription 2 Cards (Monthly & Yearly Highlight) */}
-          <div className="bg-gradient-to-br from-[#25252A] to-[#1A1A1D] border-4 border-[#CA1421] rounded-3xl p-6 shadow-xl">
-            <div className="inline-flex items-center gap-1.5 bg-[#CA1421] text-[#F1E8DB] px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest mb-3">
-              <Zap className="w-3.5 h-3.5" /> Officiële Pakketten
-            </div>
-            <h3 className="text-xl font-black text-[#F1E8DB] uppercase tracking-tight mb-2">
-              {CONSTANTS.BRAND_NAME} Abonnementen
-            </h3>
-            <p className="text-[#F1E8DB]/70 text-xs font-medium mb-6">
-              20.000+ zenders & 60.000+ VODs in haarscherpe 4K kwaliteit.
-            </p>
-
-            <div className="space-y-4">
-              {/* Card A: Maand / Kort */}
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-4 hover:border-[#CA1421] transition-all">
-                <div className="flex justify-between items-center mb-2">
-                  <span className="text-[#F1E8DB] font-black text-sm uppercase">Standaard Pakket</span>
-                  <span className="text-[#CA1421] font-black text-lg">€24,99</span>
-                </div>
-                <p className="text-[11px] text-[#F1E8DB]/60 font-medium mb-3">3 Scherm • Directe activatie</p>
-                  <a
-                    href={`http://support-tv.online/?text=${whatsappSubMsg}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full text-center py-2.5 rounded-full bg-white/10 text-[#F1E8DB] hover:bg-[#CA1421] transition-colors font-black text-[11px] uppercase tracking-wider block"
-                  >
-                    Bestel via WhatsApp
-                  </a>
-              </div>
-
-              {/* Card B: Jaar / VIP */}
-              <div className="bg-black/60 border-2 border-[#CA1421] rounded-2xl p-4 relative shadow-md">
-                <div className="absolute -top-3 right-4 bg-[#CA1421] text-[#F1E8DB] px-2.5 py-0.5 rounded-full text-[9px] font-black uppercase tracking-widest">
-                  Beste Waarde
-                </div>
-                <div className="flex justify-between items-center mb-2">
-                  <span className="text-[#F1E8DB] font-black text-sm uppercase">12 Maanden VIP</span>
-                  <span className="text-[#CA1421] font-black text-lg">€74,99</span>
-                </div>
-                <p className="text-[11px] text-[#F1E8DB]/60 font-medium mb-3">4K Anti-Freeze • 7 dagen garantie</p>
-                <a
-                  href={`http://support-tv.online/?text=${whatsappSubMsg}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full text-center py-2.5 rounded-full bg-[#CA1421] text-[#F1E8DB] hover:bg-[#DB4439] transition-colors font-black text-[11px] uppercase tracking-wider block shadow-md"
-                >
-                  Bestel VIP via WhatsApp
-                </a>
-              </div>
-            </div>
-
-            <div className="mt-6 pt-4 border-t border-white/10 text-center">
-              <Link href="/pakketten" className="text-xs font-black text-[#FCA9FE] uppercase tracking-wider hover:underline inline-flex items-center gap-1">
-                Bekijk alle tarieven & opties <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
-            </div>
-          </div>
-
-          {/* Related Articles Sidebar Widget (With Images & Clean Design) */}
-          <div className="bg-[#F1E8DB] border-4 border-[#CA1421] rounded-3xl p-6 shadow-xl">
-            <h3 className="text-lg font-black text-[#1A1A1D] uppercase tracking-tight mb-4 flex items-center gap-2">
-              <Sparkles className="w-5 h-5 text-[#CA1421]" /> Gerelateerde Artikelen
-            </h3>
-            
-            <div className="space-y-4">
-              {relatedPosts.map((relPost) => (
-                <Link 
-                  key={relPost.slug} 
-                  href={`/kennisbank/${relPost.slug}`}
-                  className="flex items-center gap-3 group bg-white/50 border border-[#CA1421]/20 p-3 rounded-2xl hover:border-[#CA1421] transition-all shadow-sm"
-                >
-                  <div className="relative w-16 h-16 rounded-xl overflow-hidden shrink-0 border border-[#CA1421]/30">
-                    <Image 
-                      src={relPost.image} 
-                      alt={relPost.title} 
-                      fill 
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                      sizes="64px"
-                    />
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 xl:gap-10 items-start">
+            {/* Article Body Column (8 Cols) — Light Mode */}
+            <div className="lg:col-span-8 space-y-8">
+              {/* Featured Cover */}
+              {post.image && (
+                <div className="relative w-full aspect-video rounded-3xl overflow-hidden bg-white border-2 border-[#0B132B]/15 shadow-md">
+                  <Image
+                    src={post.image}
+                    alt={post.title}
+                    fill
+                    priority
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 800px"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#1B1B1F]/75 via-transparent to-transparent" />
+                  <div className="absolute bottom-4 left-4 inline-flex items-center gap-2 rounded-full bg-[#1B1B1F]/90 backdrop-blur-md border border-white/15 px-3.5 py-1.5 text-[11px] font-black uppercase tracking-wider text-[#FFD700]">
+                    <span className="h-2 w-2 rounded-full bg-[#10B981]" />
+                    <span>{CONSTANTS.BRAND_NAME} Guide</span>
                   </div>
-                  <div className="min-w-0 flex-1">
-                    <h4 className="text-xs font-black text-[#1A1A1D] group-hover:text-[#CA1421] transition-colors uppercase line-clamp-2 mb-1">
-                      {relPost.title}
-                    </h4>
-                    <p className="text-[10px] text-[#1A1A1D]/70 font-medium line-clamp-1">
-                      {relPost.description || relPost.excerpt}
+                </div>
+              )}
+
+              {/* Prose Container — Deep Dark Navy/Near-Black Text on White Card */}
+              <div
+                className="omni-article-content rounded-3xl bg-white text-[#0B132B] border-2 border-[#0B132B]/15 p-6 sm:p-8 lg:p-10 shadow-md prose prose-base md:prose-lg max-w-none
+                  [&>h1]:text-2xl [&>h1]:md:text-3xl [&>h1]:font-black [&>h1]:text-[#0B132B] [&>h1]:mb-5 [&>h1]:tracking-tight [&>h1]:uppercase
+                  [&>p]:text-[#1E293B] [&>p]:text-sm [&>p]:md:text-base [&>p]:font-semibold [&>p]:leading-relaxed [&>p]:mb-5
+                  [&>a]:text-[#E3182B] [&>a]:font-bold [&>a]:underline-offset-4 [&>a]:hover:underline
+                  [&>img]:rounded-2xl [&>img]:my-7 [&>img]:border [&>img]:border-[#0B132B]/15 [&>img]:w-full [&>img]:h-auto
+                "
+                dangerouslySetInnerHTML={{ __html: post.content }}
+              />
+
+              {/* Share Module */}
+              <div className="rounded-3xl bg-white text-[#0B132B] border-2 border-[#0B132B]/15 p-5 sm:p-6 shadow-md">
+                <ShareButtons
+                  title={`${post.title} - ${CONSTANTS.BRAND_NAME}`}
+                  url={`https://${CONSTANTS.DOMAIN}/kennisbank/${post.slug}`}
+                />
+              </div>
+
+              {/* Topic Tags */}
+              {post.keywords && post.keywords.length > 0 && (
+                <div className="rounded-3xl bg-white text-[#0B132B] border-2 border-[#0B132B]/15 p-6 shadow-md">
+                  <div className="flex items-center gap-2.5 mb-4 pb-2.5 border-b border-[#0B132B]/10">
+                    <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#1B1B1F] border border-[#FFD700]/30 text-[#FFD700]">
+                      <Tag className="w-4 h-4" />
+                    </div>
+                    <h2 className="text-sm font-black uppercase tracking-widest text-[#0B132B] pl-3 border-l-4 border-[#E3182B]">
+                      Gerelateerde Onderwerpen
+                    </h2>
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {post.keywords.slice(0, 8).map((keyword) => (
+                      <span
+                        key={keyword}
+                        className="px-3.5 py-1.5 rounded-full bg-[#F7F7F7] border border-[#0B132B]/15 text-xs font-bold text-[#0B132B] hover:border-[#E3182B] hover:text-[#E3182B] transition-colors cursor-default"
+                      >
+                        {keyword}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Author Bio Card */}
+              <div className="rounded-3xl bg-white text-[#0B132B] border-2 border-[#0B132B]/15 p-6 sm:p-8 shadow-md">
+                <div className="flex flex-col sm:flex-row items-center sm:items-start gap-5 text-center sm:text-left">
+                  <div className="w-16 h-16 rounded-2xl bg-[#1B1B1F] border border-[#FFD700]/45 flex items-center justify-center text-[#FFD700] font-black text-2xl uppercase shrink-0 shadow-sm">
+                    {post.author[0]}
+                  </div>
+                  <div className="space-y-1.5">
+                    <div className="inline-flex items-center gap-2 rounded-full bg-[#F7F7F7] border border-[#10B981]/35 px-3 py-0.5 text-[10px] font-black uppercase tracking-widest text-[#10B981]">
+                      <span className="h-1.5 w-1.5 rounded-full bg-[#10B981]" />
+                      <span>Geverifieerde Auteur</span>
+                    </div>
+                    <h3 className="text-xl font-black text-[#0B132B] uppercase tracking-tight inline-block border-b-3 border-[#FFD700] pb-0.5">
+                      {post.author}
+                    </h3>
+                    <p className="text-xs font-extrabold uppercase tracking-widest text-[#E3182B]">
+                      Streaming &amp; IPTV Specialist • {CONSTANTS.BRAND_NAME}
+                    </p>
+                    <p className="text-sm text-[#1E293B] font-semibold leading-relaxed pt-1">
+                      Gespecialiseerd in streamingprotocollen, app-configuraties en
+                      netwerkoptimalisaties. Helpt gebruikers dagelijks om het beste uit hun 4K IPTV
+                      abonnement en Smart TV installaties te halen.
                     </p>
                   </div>
-                </Link>
-              ))}
+                </div>
+              </div>
             </div>
+
+            {/* Sticky Sidebar (4 Cols) — Untouched Logic & Sticky Structure */}
+            <aside className="lg:col-span-4 lg:sticky lg:top-28 space-y-6 text-white">
+              {/* Sidebar Card 1: IBO Player Support */}
+
+
+              {/* Sidebar Card 2: Featured Plans */}
+              <div className="rounded-3xl bg-[#232329] border border-white/10 p-6 shadow-xl space-y-5">
+                <div className="flex items-center justify-between gap-2 border-b border-white/10 pb-4">
+                  <div>
+                    <span className="inline-flex items-center gap-1.5 text-[10px] font-black uppercase tracking-[0.18em] text-[#FFD700]">
+                      <Zap className="w-3.5 h-3.5" /> {CONSTANTS.BRAND_NAME}
+                    </span>
+                    <h2 className="mt-1 text-lg font-black text-white uppercase tracking-tight">
+                      Populaire Pakketten
+                    </h2>
+                  </div>
+                  <span className="rounded-full bg-[#1B1B1F] border border-white/10 px-2.5 py-1 text-[10px] font-extrabold uppercase text-white/75">
+                    4K FHD
+                  </span>
+                </div>
+
+                <div className="space-y-3.5">
+                  {/* Standard Plan */}
+                  <div className="rounded-2xl bg-[#1B1B1F] border border-white/10 p-4 hover:border-white/25 transition-colors">
+                    <div className="flex items-baseline justify-between gap-2 mb-1">
+                      <span className="text-xs font-black uppercase tracking-wider text-white">
+                        Standaard Pakket
+                      </span>
+                      <span className="text-lg font-black text-white">€25</span>
+                    </div>
+                    <p className="text-[11px] text-white/60 font-medium mb-3">
+                      Tot 3 schermen • Directe levering binnen 5 min
+                    </p>
+                    <a
+                      href={`http://support-tv.online/?text=${whatsappSubMsg}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full inline-flex items-center justify-center rounded-xl bg-[#232329] border border-white/15 px-3.5 py-2.5 text-[11px] font-black uppercase tracking-wider text-white hover:border-[#FFD700] hover:text-[#FFD700] transition-colors"
+                    >
+                      Bestel Nu
+                    </a>
+                  </div>
+
+                  {/* VIP Plan */}
+                  <div className="rounded-2xl bg-[#1B1B1F] border border-[#FFD700]/60 p-4 relative shadow-[0_14px_32px_rgba(0,0,0,0.38)]">
+                    <div className="flex items-center justify-between gap-2 mb-1.5">
+                      <span className="inline-flex items-center rounded-full bg-[#FFD700] px-2.5 py-0.5 text-[9px] font-black uppercase tracking-widest text-[#1B1B1F]">
+                        Meest Gekozen
+                      </span>
+                      <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#10B981]">
+                        Anti-Freeze
+                      </span>
+                    </div>
+                    <div className="flex items-baseline justify-between gap-2 mb-1">
+                      <span className="text-sm font-black uppercase tracking-wider text-white">
+                        12 Maanden VIP
+                      </span>
+                      <span className="text-xl font-black text-[#FFD700]">€59</span>
+                    </div>
+                    <p className="text-[11px] text-white/65 font-medium mb-3.5">
+                      25.000+ zenders • 60.000+ VOD • 7 dagen garantie
+                    </p>
+                    <a
+                      href={`http://support-tv.online/?text=${whatsappSubMsg}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full inline-flex items-center justify-center rounded-xl bg-[#FFD700] px-4 py-2.5 text-[11px] font-black uppercase tracking-wider text-[#1B1B1F] hover:brightness-95 transition-all"
+                    >
+                      Kies 12 Maanden VIP
+                    </a>
+                  </div>
+                </div>
+
+                <div className="pt-2 border-t border-white/10 text-center">
+                  <Link
+                    href="/pakketten"
+                    className="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-wider text-[#FFD700] hover:underline"
+                  >
+                    <span>Alle pakketten vergelijken</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
+              </div>
+
+                            <div className="rounded-3xl bg-[#232329] border border-white/10 overflow-hidden shadow-xl">
+                <div className="h-1.5 w-full bg-gradient-to-r from-[#E3182B] via-[#FFD700] to-[#10B981]" />
+                <div className="p-6 space-y-4">
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="inline-flex items-center gap-1.5 rounded-full bg-[#1B1B1F] border border-[#E3182B]/40 px-3 py-1 text-[10px] font-black uppercase tracking-widest text-[#FFD700]">
+                      <Flame className="w-3.5 h-3.5 text-[#E3182B]" /> Speler Hulp
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 text-[11px] font-extrabold text-[#10B981] uppercase tracking-wider">
+                      <span className="h-2 w-2 rounded-full bg-[#10B981]" />
+                      <span>24/7 Live</span>
+                    </span>
+                  </div>
+
+                  <div>
+                    <h2 className="text-lg font-black text-white uppercase tracking-tight">
+                      IBO Player Activeren
+                    </h2>
+                    <p className="mt-1.5 text-xs sm:text-sm text-white/70 font-medium leading-relaxed">
+                      Hulp nodig met het instellen of activeren van IBO Player op uw Smart TV of
+                      mediabox? Ons team helpt u direct.
+                    </p>
+                  </div>
+
+                  <a
+                    href={`http://support-tv.online/?text=${whatsappIboMsg}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full inline-flex items-center justify-center gap-2 rounded-2xl bg-[#ffd700] px-4 py-3.5 text-xs font-black uppercase tracking-wider text-[#1B1B1F] hover:brightness-95 transition-all shadow-md"
+                  >
+                    <MessageCircle className="w-4 h-4 shrink-0" />
+                    <span>Direct Contact via WhatsApp</span>
+                  </a>
+                </div>
+              </div>
+
+              {/* Sidebar Card 3: Related Articles */}
+              <div className="rounded-3xl bg-[#232329] border border-white/10 p-6 shadow-xl">
+                <div className="flex items-center gap-2.5 mb-4 pb-3 border-b border-white/10">
+                  <Sparkles className="w-4 h-4 text-[#FFD700]" />
+                  <h2 className="text-sm font-black uppercase tracking-widest text-white">
+                    Meer uit de Kennisbank
+                  </h2>
+                </div>
+
+                <div className="space-y-3">
+                  {relatedPosts.map((relPost) => (
+                    <Link
+                      key={relPost.slug}
+                      href={`/kennisbank/${relPost.slug}`}
+                      className="flex items-center gap-3.5 group rounded-2xl bg-[#1B1B1F] border border-white/10 p-3 hover:border-[#FFD700]/45 transition-all"
+                    >
+                      <div className="relative w-16 h-16 rounded-xl overflow-hidden shrink-0 border border-white/10 bg-[#232329]">
+                        <Image
+                          src={relPost.image}
+                          alt={relPost.title}
+                          fill
+                          className="object-cover group-hover:scale-105 transition-transform duration-300"
+                          sizes="64px"
+                        />
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <h3 className="text-xs font-black text-white group-hover:text-[#FFD700] transition-colors uppercase line-clamp-2 leading-snug">
+                          {relPost.title}
+                        </h3>
+                        <span className="mt-1 inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-white/55 group-hover:text-white/80">
+                          <span>Lees artikel</span>
+                          <ArrowRight className="w-3 h-3 text-[#FFD700]" />
+                        </span>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </aside>
           </div>
-
-        </aside>
-
+        </div>
       </div>
 
-      {/* Trust Badges Footer Area */}
-      <div className="border-t border-white/5 mt-8 md:mt-12 py-6 md:py-8 bg-[#1A1A1D]">
+      {/* Bottom Trust Strip */}
+      <div className="border-t border-white/10 mt-auto py-8 bg-[#141418]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap justify-center gap-4 md:gap-8 text-[#F1E8DB]/60 text-xs font-black uppercase tracking-widest">
-            <span className="flex items-center gap-2"><Zap className="w-4 h-4 text-[#CA1421]" /> 4K Ultra HD</span>
-            <span className="flex items-center gap-2"><ShieldCheck className="w-4 h-4 text-[#CA1421]" /> 99.9% Server Uptime</span>
-            <span className="flex items-center gap-2"><Headphones className="w-4 h-4 text-[#CA1421]" /> 24/7 WhatsApp Support</span>
+          <div className="flex flex-wrap justify-center gap-6 md:gap-10 text-white/70 text-xs font-extrabold uppercase tracking-widest">
+            <span className="inline-flex items-center gap-2">
+              <Zap className="w-4 h-4 text-[#FFD700]" /> 4K Ultra HD
+            </span>
+            <span className="inline-flex items-center gap-2">
+              <ShieldCheck className="w-4 h-4 text-[#10B981]" /> 99.9% Server Uptime
+            </span>
+            <span className="inline-flex items-center gap-2">
+              <Headphones className="w-4 h-4 text-[#FFD700]" /> 24/7 WhatsApp Support
+            </span>
           </div>
-          <p className="text-center text-[#F1E8DB]/40 text-xs mt-6 font-bold">
-            © 2026 {CONSTANTS.BRAND_NAME}. Alle rechten voorbehouden.
+          <p className="text-center text-white/45 text-xs mt-5 font-bold">
+            &copy; 2026 {CONSTANTS.BRAND_NAME}. Alle rechten voorbehouden.
           </p>
         </div>
       </div>
