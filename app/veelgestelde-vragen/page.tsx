@@ -777,7 +777,7 @@ export default function FAQPage() {
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 max-w-md mx-auto">
               <a
-                href={`${CONSTANTS.CONTACT.whatsappUrl}?text=${encodeURIComponent(
+                href={`${CONSTANTS.CONTACT.whatsapp}?text=${encodeURIComponent(
                   `Hallo ${CONSTANTS.BRAND_NAME}, ik heb een vraag over de service en pakketten.`
                 )}`}
                 target="_blank"

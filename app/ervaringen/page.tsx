@@ -975,7 +975,7 @@ export default function ReviewsPage() {
                 <ArrowRight className="w-4 h-4" aria-hidden="true" />
               </Link>
               <a
-                href={`${CONSTANTS.CONTACT.whatsappUrl}?text=${encodeURIComponent(
+                href={`${CONSTANTS.CONTACT.whatsapp}?text=${encodeURIComponent(
                   `Hallo ${CONSTANTS.BRAND_NAME}, ik heb een vraag over de pakketten en ervaringen.`
                 )}`}
                 target="_blank"

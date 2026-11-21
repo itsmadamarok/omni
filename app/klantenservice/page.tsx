@@ -206,7 +206,7 @@ export default function ContactPage() {
       const encodedMsg = encodeURIComponent(
         `Hallo ${CONSTANTS.BRAND_NAME},\n\nNaam: ${formData.name}\nE-mail: ${formData.email}\nOnderwerp: ${formData.subject}\nBericht: ${formData.message}`
       );
-      window.open(`${CONSTANTS.CONTACT.whatsappUrl}?text=${encodedMsg}`, '_blank', 'noopener,noreferrer');
+      window.open(`${CONSTANTS.CONTACT.whatsapp}?text=${encodedMsg}`, '_blank', 'noopener,noreferrer');
 
       setShowSuccessPopup(true);
       setFormData({ name: '', email: '', subject: '', message: '' });
@@ -223,7 +223,7 @@ export default function ContactPage() {
       `Hallo ${CONSTANTS.BRAND_NAME}, ik heb een vraag over de pakketten en installatie.`
     );
     window.open(
-      `${CONSTANTS.CONTACT.whatsappUrl}?text=${defaultText}`,
+      `${CONSTANTS.CONTACT.whatsapp}?text=${defaultText}`,
       '_blank',
       'noopener,noreferrer'
     );
@@ -522,7 +522,7 @@ export default function ContactPage() {
                     Telefoon / WhatsApp
                   </p>
                   <a
-                    href={CONSTANTS.CONTACT.whatsappUrl}
+                    href={CONSTANTS.CONTACT.whatsapp}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-[#1B1B1F] hover:text-[#E3182B] transition-colors text-xs sm:text-sm font-bold"

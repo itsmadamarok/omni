@@ -47,8 +47,7 @@ import ShareButtons from '../components/ShareButtons';
    ========================================================= */
 
 const FOCUS_KEYWORD = CONSTANTS.FOCUS_KEYWORD;
-const SECONDARY_KEYWORD = CONSTANTS.SECONDARY_FOCUS_KEYWORD;
-const PLAYER_DOWNLOAD_URL = 'https://iboplayer.pro/';
+const SECONDARY_KEYWORD = CONSTANTS.SECOND_FOCUS_KEYWORD;
 
 interface StepCTA {
   label: string;
@@ -240,7 +239,11 @@ const stepData: Record<'firestick' | 'smarttv' | 'apple' | 'pc', { title: string
         chips: ['4K Weergave', 'EPG Gids', 'Snel Zappen', 'Favorieten'],
         duration: '2 min',
         icon: Download,
-        cta: { label: 'Open Speler Info', type: 'external', href: PLAYER_DOWNLOAD_URL },
+        cta: {
+          label: 'Vraag Speler Aan Via WhatsApp',
+          type: 'whatsapp',
+          message: `Hallo! Ik wil graag de juiste IPTV-speler en mijn abonnement aanvragen voor mijn Firestick / Android TV.`,
+        },
         tip: 'Schakel op Firestick bij Instellingen → Mijn Fire TV → Ontwikkelaarsopties het installeren van externe apps in wanneer nodig.',
       },
       {
@@ -325,7 +328,11 @@ const stepData: Record<'firestick' | 'smarttv' | 'apple' | 'pc', { title: string
         chips: ['Smart TV App Store', 'EPG Ondersteuning', 'Afstandsbediening'],
         duration: '2 min',
         icon: Download,
-        cta: { label: 'Open Speler Info', type: 'external', href: PLAYER_DOWNLOAD_URL },
+        cta: {
+          label: 'Vraag Speler Aan Via WhatsApp',
+          type: 'whatsapp',
+          message: `Hallo! Ik wil graag de juiste IPTV-speler en mijn abonnement aanvragen voor mijn Smart TV.`,
+        },
         tip: 'Gebruik bij voorkeur een vaste netwerkkabel of 5GHz WiFi voor de meest stabiele verbinding op de televisie.',
       },
       {
@@ -410,7 +417,11 @@ const stepData: Record<'firestick' | 'smarttv' | 'apple' | 'pc', { title: string
         chips: ['iOS & tvOS', 'App Store', 'Soepele Bediening'],
         duration: '2 min',
         icon: Download,
-        cta: { label: 'Open Speler Info', type: 'external', href: PLAYER_DOWNLOAD_URL },
+        cta: {
+          label: 'Vraag Speler Aan Via WhatsApp',
+          type: 'whatsapp',
+          message: `Hallo! Ik wil graag de juiste IPTV-app en mijn abonnement aanvragen voor mijn Apple apparaat.`,
+        },
         tip: 'Op Apple TV kunt u de afstandsbediening op uw iPhone gebruiken om tekst sneller in te voeren.',
       },
       {
@@ -495,7 +506,11 @@ const stepData: Record<'firestick' | 'smarttv' | 'apple' | 'pc', { title: string
         chips: ['Windows 10/11', 'macOS', 'Lichtgewicht'],
         duration: '2 min',
         icon: Download,
-        cta: { label: 'Open Speler Info', type: 'external', href: PLAYER_DOWNLOAD_URL },
+        cta: {
+          label: 'Vraag Speler Aan Via WhatsApp',
+          type: 'whatsapp',
+          message: `Hallo! Ik wil graag de juiste IPTV-speler en mijn abonnement aanvragen voor mijn PC of Mac.`,
+        },
         tip: 'In VLC kunt u via Media → Open Netwerkstream direct een M3U-link openen.',
       },
       {
@@ -770,7 +785,7 @@ function StepItem({ step, index, isLast }: { step: SetupStep; index: number; isL
                 )}
                 {step.cta.type === 'whatsapp' && (
                   <a
-                    href={`${CONSTANTS.CONTACT.whatsappUrl}?text=${encodeURIComponent(
+                    href={`${CONSTANTS.CONTACT.whatsapp}?text=${encodeURIComponent(
                       step.cta.message || 'Hallo, ik heb hulp nodig bij de installatie.'
                     )}`}
                     target="_blank"
@@ -1228,7 +1243,7 @@ export default function SetupPage() {
               </div>
               <div>
                 <a
-                  href={`${CONSTANTS.CONTACT.whatsappUrl}?text=${encodeURIComponent(
+                  href={`${CONSTANTS.CONTACT.whatsapp}?text=${encodeURIComponent(
                     `Hallo, ik heb hulp nodig bij ${FOCUS_KEYWORD} installatie.`
                   )}`}
                   target="_blank"
@@ -1379,7 +1394,7 @@ export default function SetupPage() {
 
             <div className="mt-10 text-center flex flex-col sm:flex-row gap-3.5 justify-center items-center">
               <a
-                href={`${CONSTANTS.CONTACT.whatsappUrl}?text=${encodeURIComponent(
+                href={`${CONSTANTS.CONTACT.whatsapp}?text=${encodeURIComponent(
                   `Hallo! Ik heb een vraag over ${FOCUS_KEYWORD} installatie.`
                 )}`}
                 target="_blank"
